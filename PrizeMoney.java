@@ -10,57 +10,27 @@ public class PrizeMoney
 
 	public void prizeMoney(String res)
 	{
+		
 		Admin ad = Admin.getInstance();
-		Buyer by = Buyer.getInstance();
+		Buyer by = Buyer.getInstance(); 
+
 		String result = res;
 		
 		int prize=0;
-		
-		/*
-		if (result == "aaa")
-		{
-			System.out.println("십만원에 당첨되셨습니다");	// 임의 문구(나중에 바꿀것)
-			prize = 100000;	// 임시로 값 설정
-			won50kEa = won50kEa - 2;
-		}
-		else if (result == "bbb")
-		{
-			System.out.println("만오천원에 당첨되셨습니다");
-			prize = 15000;
-			won5kEa = won5kEa - 1;
-			won10kEa = won10kEa - 1;
-		}
-		else if (result == "ccc")
-		{
-			System.out.println("오천원에 당첨되셨습니다.");
-			prize = 5000;
-			won5kEa --;
-		}
-		else if (result == "ddd")
-		{
-			System.out.println("천원에 당첨되셨습니다.");
-			prize = 1000;
-			won1kEa --;
-		}
-		else if (result == "777")
-		{
-			System.out.println("잭팟 ㅊㅊ 당첨금 관리자 찾아가셈");
-		}
-		else
-		{
-			System.out.println("실패 ㅋㅋ ");
-		}
-		*/
 
 		switch (result) {
             case "aaa":
                 System.out.println("100,000￦ 당첨");
+				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				// pmd.stack();
+				// pmd.setTotalPrizeMoney(result);
                 prize = 100000;
 				won50kEa = won50kEa - 2;
 				break;
                 
             case "bbb":
                 System.out.println("15,000￦ 당첨");
+				PrizeMoneyDisplay.setTotalPrizeMoney(result);
                 prize = 15000;
 				won5kEa = won5kEa - 1;
 				won10kEa = won10kEa - 1;
@@ -68,12 +38,14 @@ public class PrizeMoney
                 
             case "ccc":
                 System.out.println("5,000￦ 당첨");
+				PrizeMoneyDisplay.setTotalPrizeMoney(result);
                 prize = 5000;
 				won5kEa --;
 				break;
                 
             case "ddd":
                 System.out.println("1,000￦ 당첨");
+				PrizeMoneyDisplay.setTotalPrizeMoney(result);
                 prize = 1000;
 				won1kEa --;
 				break;
@@ -81,9 +53,11 @@ public class PrizeMoney
             case "777":
                 System.out.println("!!!JACKPOT!!!");
                 System.out.println("당첨금은 관리자에게 받아가세요");	// 관리자 호출 추가
+				PrizeMoneyDisplay.setTotalPrizeMoney(result);
 				break;
                 
             default:
+				PrizeMoneyDisplay.setTotalPrizeMoney(result);
                 System.out.println("실패!");
                 
         }
