@@ -39,4 +39,9 @@ public class Buyer // implements Serializable
 	{
 		buyerMoney -= money;
 	}
+	
+	public int getBuyerMoney()
+	{
+		return buyerMoney;
+	}
 }
