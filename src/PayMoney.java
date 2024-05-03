@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class PayMoney
 {
 	private int salesMoney=0;
-
+  
 	
 	public void inputMoney(int money)
 	{
@@ -15,14 +15,13 @@ public class PayMoney
 	{
 		Admin ad = Admin.getInstance();
 		
-		ad.addAdminmoney(salesMoney); // ÀÔ·Â¹ŞÀº µ·À» °ü¸®ÀÚÇÑÅ× ³Ñ±è
+		ad.addAdminmoney(salesMoney); // ì…ë ¥ë°›ì€ ëˆì„ ê´€ë¦¬ìí•œí…Œ ë„˜ê¹€
 
-		//System.out.printf("ÇöÀç µ·Åë¿¡ %d¿øÀÌ ½×¿©ÀÖ½À´Ï´Ù\n",salesMoney);	// Å×½ºÆ®¿ë ¹®±¸
+		//System.out.printf("í˜„ì¬ ëˆí†µì— %dì›ì´ ìŒ“ì—¬ìˆìŠµë‹ˆë‹¤\n",salesMoney);	// í…ŒìŠ¤íŠ¸ìš© ë¬¸êµ¬
 
-		salesMoney = 0;				  // ³Ñ°ÜÁáÀ¸´Ï ´Ù½Ã ÃÊ±âÈ­
+		salesMoney = 0;				  // ë„˜ê²¨ì¤¬ìœ¼ë‹ˆ ë‹¤ì‹œ ì´ˆê¸°í™”
 
-		//System.out.printf("ÇöÀç µ·Åë¿¡ %d¿øÀÌ ½×¿©ÀÖ½À´Ï´Ù.\n",salesMoney); // Å×½ºÆ®¿ë ¹®±¸
+		//System.out.printf("í˜„ì¬ ëˆí†µì— %dì›ì´ ìŒ“ì—¬ìˆìŠµë‹ˆë‹¤.\n",salesMoney); // í…ŒìŠ¤íŠ¸ìš© ë¬¸êµ¬
+
 	}
 }
-
-
