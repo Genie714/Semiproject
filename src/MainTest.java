@@ -41,7 +41,7 @@ public class MainTest
 			System.out.println("¿‹µ∑ : " + ob1.change(al));
 			// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob1.change(al));
+			cm.returnMoney(ob1.change(al), pmd);
 		}
 		
 		if(a==2)
@@ -53,7 +53,7 @@ public class MainTest
 			System.out.println("¿‹µ∑ : " + ob2.change(al));
 			// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob2.change(al));
+			cm.returnMoney(ob2.change(al), pmd);
 		}
 		
 		if(a==3)
@@ -63,7 +63,7 @@ public class MainTest
 			System.out.println("¿‹µ∑ : " + ob3.change(price));
 			// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob3.change(price));
+			cm.returnMoney(ob3.change(price), pmd);
 		}
 		
 		//¥Á√∑±› π›»Ø
