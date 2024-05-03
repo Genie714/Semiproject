@@ -70,13 +70,15 @@ public class ChangeMoney extends ReturnMoney
 		 won5kEa = won5kEa - ochun;
 		 won1kEa = won1kEa - chun;
 
-		 int totalVal = (won10kEa*WON10KVAL) + (won5kEa*WON5KVAL) + (won1kEa*WON1KVAL) + (won500Ea*500);
+		 totalVal = (won10kEa*WON10KVAL) + (won5kEa*WON5KVAL) + (won1kEa*WON1KVAL) + (won500Ea*500);
+		 //System.out.printf("totalVal = %d\n", totalVal);	//테스트 문구
 	}
 
 	@Override
 	public void enterMoney()
 	{
 		int fill = 5000000 - totalVal;
+		//System.out.printf("fill = %d\n", fill);				//테스트 문구
 		if (won10kEa <= 1 || won5kEa <= 1 || won1kEa <= 1||won500Ea <= 1) // 특정 금액갯수가 1 이하가 되면 실행
 		{
 			won10kEa = 100;
