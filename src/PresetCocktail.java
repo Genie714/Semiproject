@@ -6,7 +6,6 @@ import java.util.*;
 class PresetCocktail extends AlcoholVendingMachine
 {
 	private int vodka=10000;
-
 	private int gin=10000;
 	private int vermouth=10000;
     private int campari=10000;
@@ -14,26 +13,20 @@ class PresetCocktail extends AlcoholVendingMachine
 	private int jgermeister=10000;
 	private int mojito=10000;
 	private int whiterum=10000;
-
 	private int bluecuracao=10000;
-
 	private int orangejuice=10000;
 	private int limejuice=10000;
 	private int pinejuice=10000;
 	private int lemonjuice=10000;
 	private int sparklingwater=10000;
 	private int redbull=10000;
-
-
 	private int olive=10000;
 	
 	
 	@Override
 	protected void alcoholReturn(int al)
 	{
-
 		Map<String,Integer> map = new HashMap<String,Integer>();
-
 
 		String result = "";
 		
@@ -53,17 +46,14 @@ class PresetCocktail extends AlcoholVendingMachine
 		}
 		
 		System.out.println(result);
-
 		map.put(result,300);
 		//System.out.println(map);
-
 
 	}
 	
 	@Override
 	protected void list()
 	{	
-
 		System.out.printf("1 %s (%5d￦)   ","스큐르 드라이버",12500);
 		System.out.printf("2 %s (%5d￦)   ","네그로니",23500);
 		System.out.printf("3 %s    (%5d￦) \n","김렛",21500);
@@ -75,7 +65,6 @@ class PresetCocktail extends AlcoholVendingMachine
 		System.out.printf("9 %s  (%5d￦) \n","모히또",9500);
 		System.out.printf("10 %s     (%5d￦)\n","블루하와이",14500);
      
-
 		System.out.println();
 		
 	}
@@ -85,7 +74,6 @@ class PresetCocktail extends AlcoholVendingMachine
 	{
 		int price = 0;
       
-
 		switch (al)
 		{
 		case 1: price = 12500; break;
@@ -111,7 +99,10 @@ class PresetCocktail extends AlcoholVendingMachine
 		}
 
 		return changeMoney;
+
+		
 	}
+	
 	
 	protected void stock(int al)						// 모든 종류의 술 재고 정리해주는 메소드
 	{
@@ -262,6 +253,8 @@ class PresetCocktail extends AlcoholVendingMachine
 	
 	protected void alcoholRun()
 	{
+		Scanner sc = new Scanner(System.in);
+
 		list();
 		int al = alcoholChoose();
 		alcoholReturn(al);
@@ -280,6 +273,5 @@ class PresetCocktail extends AlcoholVendingMachine
 		}
 	
 	}
-
 
 }

@@ -14,20 +14,21 @@ class CustomCocktail extends AlcoholVendingMachine
 	private int jgermeister=10000;
 	private int mojito=10000;
 	private int whiterum=10000;
-
 	private int bluecuracao=10000;
-
+	private int orangejuice=10000;
+	private int limejuice=10000;
+	private int pinejuice=10000;
+	private int lemonjuice=10000;
+	private int sparklingwater=10000;
+	private int redbull=10000;
 	int price=0;
 	int result=0;
-
-	private int bluecuracao=10000;
-	int price=0;
+	int al;
+	int shot;
 	
 	
 	@Override
 	protected int alcoholChoose()						// 커스텀 칵테일 클래스만 술 선택하는 메소드 따로 정의
-
-	
 	{
 
 		Scanner sc = new Scanner(System.in);
@@ -39,7 +40,6 @@ class CustomCocktail extends AlcoholVendingMachine
 			System.out.print("술을 선택하시오 : ");
 			al = sc.nextInt();
 
-
 			alcoholReturn(al);
 			
 			System.out.print("추가할 Shot : ");
@@ -49,7 +49,6 @@ class CustomCocktail extends AlcoholVendingMachine
 
 			if (shot < 1)
 			{
-
 				System.out.println("총 10 Shot을 넣어야 술이 제조됩니다. 계속 입력하세요.");
 			}
 			
@@ -115,14 +114,12 @@ class CustomCocktail extends AlcoholVendingMachine
 			}
 			
 	
-
 		} // close while
 		
 		
 		return price;
 
 	
-
 	}
 	
 	@Override
@@ -149,19 +146,16 @@ class CustomCocktail extends AlcoholVendingMachine
 		case 13: result = "레몬 주스"; break;
 		case 14: result = "탄산수"; break;
 		case 15: result = "레드불"; break;
-
 		}
 		
 		System.out.println(result);
 		map.put(result,300);
 		//System.out.println(map);
-
 	}
 	
 	@Override
 	protected void list()
 	{
-
 		System.out.println("1shot (30ml)");
 		System.out.println();
 		System.out.printf("1 %s      (%d￦) ","보드카",2250);
@@ -182,7 +176,6 @@ class CustomCocktail extends AlcoholVendingMachine
       
 		System.out.println();
 
-
 	}
 
 	@Override
@@ -199,8 +192,10 @@ class CustomCocktail extends AlcoholVendingMachine
 		}
 
 		return changeMoney;
+
 	}
 	
+
 	// 커스텀 클래스만 stock 메소드 없이 술 재고 정리도 alcoholChoose 메소드 안 while문에 통합 
 	
 	
@@ -209,6 +204,8 @@ class CustomCocktail extends AlcoholVendingMachine
 
 	protected void alcoholRun()
 	{
+		Scanner sc = new Scanner(System.in);
+
 		list();
 		int price = alcoholChoose();
 	
@@ -229,6 +226,10 @@ class CustomCocktail extends AlcoholVendingMachine
 		{
 			break;
 		}
-	}	
+
+	}
+
+	
+
 }  
 

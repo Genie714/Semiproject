@@ -29,31 +29,38 @@ public class MainTest
 		PresetCocktail ob2 = new PresetCocktail();
 		CustomCocktail ob3 = new CustomCocktail();
 		
-		if(a==1)
+		while (true)
 		{
-			ob1.alcoholRun();
-			// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
-			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob1.change(al));
-		}
 		
-		if(a==2)
-		{	
-			ob2.alcoholRun();
-			// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
-			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob2.change(al));
-		}
-		
-		if(a==3)
-		{
-			ob3.alcoholRun();
-			// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
-			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob3.change(price));
+			if(a==1)
+			{
+				ob1.alcoholRun();
+				// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
+				ChangeMoney cm = new ChangeMoney();
+				cm.returnMoney(ob1.change(al));
+			}
+			
+			if(a==2)
+			{	
+				ob2.alcoholRun();
+				// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
+				ChangeMoney cm = new ChangeMoney();
+				cm.returnMoney(ob2.change(al));
+			}
+			
+			if(a==3)
+			{
+				ob3.alcoholRun();
+				// ¿‹µ∑ π›»Ø //∑Í∑ø ≈¨∑°Ω∫ ¡¯«‡
+				ChangeMoney cm = new ChangeMoney();
+				cm.returnMoney(ob3.change(price));
 
+			}
+			
 		}
-		
+
+
+
 		//¥Á√∑±› π›»Ø
 		
 		
