@@ -81,29 +81,9 @@ public class MainTest
 	{
 		for(int i=0; i<20; i++)
 		{
-			
 			System.out.println("=====================================");
 			System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-			System.out.println("=====================================");
-			
-			Thread.sleep(100);
-			for(int j=0; j<111; j++)
-			{
-				System.out.printf("\b");
-			}
-			System.out.println("*************************************");
-			System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-			System.out.println("*************************************");
-			
-			Thread.sleep(100);
-			for(int j=0; j<111; j++)
-			{
-				System.out.printf("\b");
-			}
-			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-			System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-			
+			System.out.println("=====================================");			
 		}
 	}
 }
