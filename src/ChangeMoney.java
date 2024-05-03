@@ -7,8 +7,8 @@ public class ChangeMoney extends ReturnMoney
 	int finalcharge;
 	int totalVal;
 	
-	@Override
-	public void returnMoney(int charge)	// 거스름돈 넘겨받음
+	//@Override
+	public void returnMoney(int charge, PrizeMoneyDisplay pmd)	// 거스름돈 넘겨받음
 	{
 		//System.out.printf("현재 거스름돈 통에 들어있는 돈은 %d원 입니다.\n",totalVal);
 		// charge == 거스름돈
@@ -52,9 +52,10 @@ public class ChangeMoney extends ReturnMoney
 
 		if (check == 1)	// 참가했어
 		{
-			PrizeMoneyDisplay.stack();//: dp에 490원 추가된 값으로 새롭게 보여준다.
+			//PrizeMoneyDisplay.stack();//: dp에 490원 추가된 값으로 새롭게 보여준다.
+			pmd.stack();
 			RouletteCal exe = new RouletteCal();
-			exe.rand(check);
+			exe.rand(check,pmd);
 		}
 		else
 		{

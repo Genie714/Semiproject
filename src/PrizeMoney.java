@@ -8,7 +8,7 @@ public class PrizeMoney
 	int defaultPrize = 5000000;		// 당첨금통 금액 (500만) --> 실제 룰렛 디스플레이에서는 (10만+490n) 만큼 표시중
 
 
-	public void prizeMoney(String res)
+	public void prizeMoney(String res,PrizeMoneyDisplay pmd)
 	{
 		
 		Admin ad = Admin.getInstance();
@@ -21,31 +21,35 @@ public class PrizeMoney
 		switch (result) {
             case "aaa":
                 System.out.println("100,000￦ 당첨");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
 				// pmd.stack();
 				// pmd.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 prize = 100000;
 				won50kEa = won50kEa - 2;
 				break;
                 
             case "bbb":
                 System.out.println("15,000￦ 당첨");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 prize = 15000;
-				won5kEa = won5kEa - 1;
+				won5kEa = won5kEa - 1; 
 				won10kEa = won10kEa - 1;
 				break;
                 
             case "ccc":
                 System.out.println("5,000￦ 당첨");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 prize = 5000;
 				won5kEa --;
 				break;
                 
             case "ddd":
                 System.out.println("1,000￦ 당첨");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 prize = 1000;
 				won1kEa --;
 				break;
@@ -53,11 +57,13 @@ public class PrizeMoney
             case "777":
                 System.out.println("!!!JACKPOT!!!");
                 System.out.println("당첨금은 관리자에게 받아가세요");	// 관리자 호출 추가
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
 				break;
                 
             default:
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 System.out.println("실패!");
                 
         }
