@@ -1,10 +1,10 @@
-/*¼ø¼­
- * °´Ã¼ºÒ·¯¿À±â or °´Ã¼ »ı¼ºÇÏ±â
- * ÀÚÆÇ±â ¾È³» ¹× ÀèÆÌ¿¹Á¤±İ µğ½ºÇÃ·¹ÀÌ
- * Alcohol Å¬·¡½º ÁøÇà
- * ·ê·¿ Å¬·¡½º ÁøÇà
- * ´çÃ·±İ ¹İÈ¯
- * °´Ã¼ ³»º¸³»±â */
+/*ìˆœì„œ
+ * ê°ì²´ë¶ˆëŸ¬ì˜¤ê¸° or ê°ì²´ ìƒì„±í•˜ê¸°
+ * ìíŒê¸° ì•ˆë‚´ ë° ì­íŒŸì˜ˆì •ê¸ˆ ë””ìŠ¤í”Œë ˆì´
+ * Alcohol í´ë˜ìŠ¤ ì§„í–‰
+ * ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
+ * ë‹¹ì²¨ê¸ˆ ë°˜í™˜
+ * ê°ì²´ ë‚´ë³´ë‚´ê¸° */
 
 import java.util.Scanner;
 
@@ -12,81 +12,69 @@ public class MainTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		// °´Ã¼ ºÒ·¯¿À±â ¡æ ¹Ì±¸Çö ÀÓ½Ã Å¬·¡½º ÀÎ½ºÅÏ½º »ı¼º
+		// ê°ì²´ ë¶ˆëŸ¬ì˜¤ê¸° â†’ ë¯¸êµ¬í˜„ ì„ì‹œ í´ë˜ìŠ¤ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
 //		LoadObject lo = new LoadObject();
 //		lo.loadObject();
 		
 		
-		//ÀÚÆÇ±â ¾È³» ¹× ÀèÆÌ ¿¹Á¤±İ µğ½ºÇÃ·¹ÀÌ
+		//ìíŒê¸° ì•ˆë‚´ ë° ì­íŒŸ ì˜ˆì •ê¸ˆ ë””ìŠ¤í”Œë ˆì´
 		PrizeMoneyDisplay pmd = new PrizeMoneyDisplay();
 		print();
 		pmd.showTotalPrize();
 		
+
 		
-		//Alcohol Å¬·¡½º ÁøÇà(Alcohol º¹»ç ºÙ¿©³Ö±â)
+		//Alcohol í´ë˜ìŠ¤ ì§„í–‰(Alcohol ë³µì‚¬ ë¶™ì—¬ë„£ê¸°)
 		SingleItem ob1 = new SingleItem();
 		PresetCocktail ob2 = new PresetCocktail();
 		CustomCocktail ob3 = new CustomCocktail();
 		
-		Scanner sc = new Scanner(System.in);
-		System.out.print("3°¡Áö À¯Çü Áß ÇÏ³ª¸¦ ¼±ÅÃÇÏ¼¼¿ä (¨ç ´ÜÇ° / ¨è ÇÁ¸®¼Â(Ä¬Å×ÀÏ) / ¨é Ä¿½ºÅÒ(Ä¬Å×ÀÏ) : ");
-		int a = sc.nextInt();
-		
 		if(a==1)
 		{
-			ob1.list();
-			int al = ob1.alcoholChoose();
-			ob1.alcoholReturn(al);
-			ob1.stock(al);
-			System.out.println("ÀÜµ· : " + ob1.change(al));
-			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
-			ChangeMoney cm = new ChangeMoney(); // °´Ã¼ »õ·Î ºÒ·¯¿À´Â°Å ¸»°í ±âÁ¸ °´Ã¼°¡Á®¿Í¾ß
-			cm.returnMoney(ob1.change(al), pmd);
+			ob1.alcoholRun();
+			// ì”ëˆ ë°˜í™˜ //ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
+			ChangeMoney cm = new ChangeMoney();
+			cm.returnMoney(ob1.change(al));
 		}
 		
 		if(a==2)
 		{	
-			ob2.list();
-			int al = ob2.alcoholChoose();
-			ob2.alcoholReturn(al);
-			ob2.stock(al);
-			System.out.println("ÀÜµ· : " + ob2.change(al));
-			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
+			ob2.alcoholRun();
+			// ì”ëˆ ë°˜í™˜ //ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob2.change(al), pmd);
+			cm.returnMoney(ob2.change(al));
 		}
 		
 		if(a==3)
 		{
-			ob3.list();
-			int price = ob3.alcoholChoose();
-			System.out.println("ÀÜµ· : " + ob3.change(price));
-			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
+			ob3.alcoholRun();
+			// ì”ëˆ ë°˜í™˜ //ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob3.change(price), pmd);
+			cm.returnMoney(ob3.change(price));
+
 		}
 		
-		//°ü¸®ÀÚ¸ğµåÃâ·Â
-		if(a==123)
-		{
-			AdminMode.adminMenu();
-		}
-		
-		//´çÃ·±İ ¹İÈ¯
+		//ë‹¹ì²¨ê¸ˆ ë°˜í™˜
 		
 		
 		
-		//°´Ã¼ ³»º¸³»±â ¡æ ¹Ì±¸Çö
+		//ê°ì²´ ë‚´ë³´ë‚´ê¸° â†’ ë¯¸êµ¬í˜„
 		//SaveObject so = new SaveObject();
 		
 		//so.saveObject(ad,buy,alc);
 		
 	}
 	
-	private static void print() throws InterruptedException
+
+	private static void print()
 	{
 		System.out.println("=====================================");
-		System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-		System.out.println("=====================================");		
+		System.out.println(" â– â– â–  500ë£°ë › ì¹µí…Œì¼ ìíŒê¸° â– â– â– ");
+		System.out.println("=====================================");
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("3ê°€ì§€ ìœ í˜• ì¤‘ í•˜ë‚˜ë¥¼ ì„ íƒí•˜ì„¸ìš” (â‘  ë‹¨í’ˆ / â‘¡ í”„ë¦¬ì…‹(ì¹µí…Œì¼) / â‘¢ ì»¤ìŠ¤í…€(ì¹µí…Œì¼) : ");
+		int a = sc.nextInt();
+
 	}
 }

@@ -1,7 +1,12 @@
-// AlcoholVendingMachine Å¬·¡½º »ó¼Ó¹Ş´Â Å¬·¡½º ¼³°è
+// AlcoholVendingMachine í´ë˜ìŠ¤ ìƒì†ë°›ëŠ” í´ë˜ìŠ¤ ì„¤ê³„
+
+import java.io.*;
+import java.util.*;
+
 class PresetCocktail extends AlcoholVendingMachine
 {
-	private int vodka=10000; 
+	private int vodka=10000;
+
 	private int gin=10000;
 	private int vermouth=10000;
     private int campari=10000;
@@ -9,54 +14,68 @@ class PresetCocktail extends AlcoholVendingMachine
 	private int jgermeister=10000;
 	private int mojito=10000;
 	private int whiterum=10000;
+
+	private int bluecuracao=10000;
+
 	private int orangejuice=10000;
 	private int limejuice=10000;
 	private int pinejuice=10000;
 	private int lemonjuice=10000;
 	private int sparklingwater=10000;
 	private int redbull=10000;
-	private int bluecuracao=10000;
+
+
 	private int olive=10000;
 	
 	
 	@Override
 	protected void alcoholReturn(int al)
 	{
+
+		Map<String,Integer> map = new HashMap<String,Integer>();
+
+
 		String result = "";
 		
 		switch (al)
 		{
-		case 1: result = "½ºÅ¥¸£ µå¶óÀÌ¹ö"; break;
-		case 2: result = "³×±×·Î´Ï"; break;
-		case 3: result = "±è·¿"; break;
-		case 4: result = "Ä«Å¸¸£½Ã½º"; break;
-		case 5: result = "Áø ÇÇÁî"; break;
-		case 6: result = "¿¹°Å ¹ã"; break;
-		case 7: result = "µå¶óÀÌ ¸¶Æ¼´Ï"; break;
-		case 8: result = "ÁøÅä´Ğ"; break;
-		case 9: result = "¸ğÈ÷¶Ç"; break;
-		case 10: result = "ºí·çÇÏ¿ÍÀÌ"; break;
+		case 1: result = "ìŠ¤íë¥´ ë“œë¼ì´ë²„"; break;
+		case 2: result = "ë„¤ê·¸ë¡œë‹ˆ"; break;
+		case 3: result = "ê¹€ë ›"; break;
+		case 4: result = "ì¹´íƒ€ë¥´ì‹œìŠ¤"; break;
+		case 5: result = "ì§„ í”¼ì¦ˆ"; break;
+		case 6: result = "ì˜ˆê±° ë°¤"; break;
+		case 7: result = "ë“œë¼ì´ ë§ˆí‹°ë‹ˆ"; break;
+		case 8: result = "ì§„í† ë‹‰"; break;
+		case 9: result = "ëª¨íˆë˜"; break;
+		case 10: result = "ë¸”ë£¨í•˜ì™€ì´"; break;
 		
 		}
 		
 		System.out.println(result);
+
+		map.put(result,300);
+		//System.out.println(map);
+
 
 	}
 	
 	@Override
 	protected void list()
 	{	
-		System.out.println("1. ½ºÅ¥¸£ µå¶óÀÌ¹ö");
-		System.out.println("2. ³×±×·Î´Ï");
-		System.out.println("3. ±è·¿");
-		System.out.println("4. Ä«Å¸¸£½Ã½º");
-		System.out.println("5. Áø ÇÇÁî");
-		System.out.println("6. ¿¹°Å ¹ã");
-		System.out.println("7. µå¶óÀÌ ¸¶Æ¼´Ï");
-		System.out.println("8. ÁøÅä´Ğ");
-		System.out.println("9. ¸ğÈ÷¶Ç");
-		System.out.println("10. ºí·çÇÏ¿ÍÀÌ");
-		
+
+		System.out.printf("1 %s (%5dï¿¦)   ","ìŠ¤íë¥´ ë“œë¼ì´ë²„",12500);
+		System.out.printf("2 %s (%5dï¿¦)   ","ë„¤ê·¸ë¡œë‹ˆ",23500);
+		System.out.printf("3 %s    (%5dï¿¦) \n","ê¹€ë ›",21500);
+		System.out.printf("4 %s      (%5dï¿¦)   ","ì¹´íƒ€ë¥´ì‹œìŠ¤",18500);
+		System.out.printf("5 %s  (%5dï¿¦)   ","ì§„ í”¼ì¦ˆ",16500);
+		System.out.printf("6 %s (%5dï¿¦) \n","ì˜ˆê±° ë°¤",11500);
+		System.out.printf("7 %s   (%5dï¿¦)   ","ë“œë¼ì´ ë§ˆí‹°ë‹ˆ",18500);
+		System.out.printf("8 %s   (%5dï¿¦)   ","ì§„í† ë‹‰",11500);
+		System.out.printf("9 %s  (%5dï¿¦) \n","ëª¨íˆë˜",9500);
+		System.out.printf("10 %s     (%5dï¿¦)\n","ë¸”ë£¨í•˜ì™€ì´",14500);
+     
+
 		System.out.println();
 		
 	}
@@ -65,7 +84,8 @@ class PresetCocktail extends AlcoholVendingMachine
 	protected int change(int al)
 	{
 		int price = 0;
-		
+      
+
 		switch (al)
 		{
 		case 1: price = 12500; break;
@@ -79,111 +99,187 @@ class PresetCocktail extends AlcoholVendingMachine
 		case 9: price = 9500; break;
 		case 10: price = 14500; break;
 		}
+		
+		int changeMoney = getMoney() - price;
 
+		while (changeMoney < 0)
+		{
+			System.out.println("ì…ë ¥í•œ ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+			System.out.println();
 
-		return getMoney()-price;
+			changeMoney = getMoney() - price;
+		}
+
+		return changeMoney;
 	}
 	
-	protected void stock(int al)
+	protected void stock(int al)						// ëª¨ë“  ì¢…ë¥˜ì˜ ìˆ  ì¬ê³  ì •ë¦¬í•´ì£¼ëŠ” ë©”ì†Œë“œ
 	{
-		int res1 = 0;
-		int res2 = 0;
-		int res3 = 0;
-		int res4 = 0;
-		
-		switch(al) 
+	    switch(al) 
+	    {
+			case 1:
+			   vodka -= 100;
+	           orangejuice -= 200;
+	           break;
+	       
+		    case 2:
+			   gin -= 100;
+	           vermouth -= 100;
+	           campari -= 100;
+	           break;
+
+			case 3:
+	           gin -= 225;
+	           limejuice -= 75;
+	           break;
+			
+			case 4:
+	           whiterum -= 180;
+	           limejuice -= 60;
+	           amaretto -= 60;
+	           break;
+			
+			case 5:
+	           gin -= 130;
+	           sparklingwater -= 85;
+	           lemonjuice -= 85;
+	           break;
+
+			case 6:
+	           jgermeister -= 75;
+	           redbull -= 225;
+	           break;
+	        
+			case 7:
+	           gin -= 75;
+	           vermouth -= 225;
+	           olive -= 1;
+	           break;
+
+			case 8:
+	           gin -= 75;
+	           sparklingwater -= 225;
+	           break;
+
+			case 9:
+	           mojito -= 75;
+	           sparklingwater -= 225;
+	           break;
+	        
+			case 10:
+	           whiterum -= 100;
+	           bluecuracao -= 50;
+	           lemonjuice -= 50;
+	           pinejuice -= 100;;
+	           break;
+
+		}
+      
+
+	  	if (al==1)
 		{
-	    case 1:
-	        res1 = vodka -= 100;
-	        res2 = orangejuice -= 200;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 2:
-	        res1 = gin -= 100;
-	        res2 = vermouth -= 100;
-	        campari -= 100;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 3:
-	        res1 = gin -= 225;
-	        res2 = limejuice -= 75;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 4:
-	        res1 = whiterum -= 180;
-	        res2 = amaretto -= 60;
-	        res3 = limejuice -= 60;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 5:
-	        res1 = gin -= 130;
-	        res2 = lemonjuice -= 85;
-	        res3 = sparklingwater -= 85;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 6:
-	        res1 = jgermeister -= 75;
-	        res2 = redbull -= 225;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 7:
-	        res1 = gin -= 75;
-	        res2 = vermouth -= 225;
-	        res3 = olive -= 1;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 8:
-	        res1 = gin -= 75;
-	        res2 = sparklingwater -= 225;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 9:
-	        res1 = mojito -= 75;
-	        res2 = sparklingwater -= 225;
-			res3 = 10000;
-			res4 = 10000;
-	        break;
-	    case 10:
-	        res1 = whiterum -= 100;
-	        res2 = bluecuracao -= 50;
-	        res3 = pinejuice -= 100;
-	        res4 = lemonjuice -= 50;
-	        break;
-	    }
-		
-		if (res1==100)
+			if (vodka < 100 || orangejuice < 200)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
+		}
+
+		if (al==2)
 		{
-			System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
+			if (gin < 100 || vermouth < 100 || campari < 100)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
 		}
 		
-		if (res2==100)
+		if (al==3)
 		{
-			System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
+			if (gin < 225 || limejuice < 75)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
 		}
 		
-		if (res3==100)
+		if (al==4)
 		{
-			System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
+			if (whiterum < 180 || limejuice < 60 || amaretto < 60)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
 		}
 		
-		if (res4==100)
+		if (al==5)
 		{
-			System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
+			if (gin < 130 || sparklingwater < 85 || lemonjuice < 85)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
+		}
+      
+		if (al==6)
+		{
+			if (jgermeister < 75 || redbull < 225)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
+		}
+      
+		if (al==7)
+		{
+			if (gin < 75 || vermouth < 225 || olive < 1)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
+		}
+      
+		if (al==8)
+		{
+			if (gin < 75 || sparklingwater < 225)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
+		}
+      
+		if (al==9)
+		{
+			if (mojito < 75 || sparklingwater < 225)
+			{
+				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
+		}
+      
+		if (al==10)
+		{
+			if (whiterum < 100 || bluecuracao < 50 || lemonjuice < 50 || pinejuice < 100)
+			{
+            System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			}
 		}
 		System.out.println();
+  
+	}
+
+	
+	protected void alcoholRun()
+	{
+		list();
+		int al = alcoholChoose();
+		alcoholReturn(al);
+		stock(al);
+		System.out.println("ì”ëˆ : " + change(al));
 		
-		
-		
-		// Å×½ºÆ®(È®ÀÎ)
-		//System.out.println("º¸µåÄ«, ¿À·»Áö ÁÖ½º ³²Àº ¾ç : "+ res1+res2+res3+res4);
-		
-	}	
+		System.out.println();
+				
+		System.out.print("ìˆ ì„ ì¶”ê°€ë¡œ ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ?(Y/N) : ");
+		String add = sc.next();
+		char check = add.charAt(0);
+
+		if (check != 'y' && check != 'Y')
+		{
+			break;
+		}
+	
+	}
+
+
 }
