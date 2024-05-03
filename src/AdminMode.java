@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class AdminMode
 {
-	public void adminMenu()
+	public static void adminMenu()
 	{
 		Scanner sc = new Scanner(System.in);
 		

@@ -66,6 +66,12 @@ public class MainTest
 			cm.returnMoney(ob3.change(price), pmd);
 		}
 		
+		//관리자모드출력
+		if(a==123)
+		{
+			AdminMode.adminMenu();
+		}
+		
 		//당첨금 반환
 		
 		
