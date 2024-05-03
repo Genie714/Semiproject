@@ -26,8 +26,7 @@ public class LoadObject
 			//역직렬화
 			HashMap h1 = (HashMap)ois.readObject();
 			//System.out.println(h1);
-			Admin ad = (Admin)h1.get("Admin");
-			System.out.println(ad.getAdminMoney());
+			//System.out.println(ad.getAdminMoney());
 			
 			ois.close();
 			fis.close();

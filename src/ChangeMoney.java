@@ -8,10 +8,10 @@ public class ChangeMoney extends ReturnMoney
 	int totalVal;
 	
 	//@Override
-	public void returnMoney(int charge, PrizeMoneyDisplay pmd) throws Exception	// °Å½º¸§µ· ³Ñ°Ü¹ŞÀ½
+	public void returnMoney(int charge, PrizeMoneyDisplay pmd) throws Exception	// ê±°ìŠ¤ë¦„ëˆ ë„˜ê²¨ë°›ìŒ
 	{
-		//System.out.printf("ÇöÀç °Å½º¸§µ· Åë¿¡ µé¾îÀÖ´Â µ·Àº %d¿ø ÀÔ´Ï´Ù.\n",totalVal);
-		// charge == °Å½º¸§µ·
+		//System.out.printf("í˜„ì¬ ê±°ìŠ¤ë¦„ëˆ í†µì— ë“¤ì–´ìˆëŠ” ëˆì€ %dì› ì…ë‹ˆë‹¤.\n",totalVal);
+		// charge == ê±°ìŠ¤ë¦„ëˆ
 		int man = charge / WON10KVAL;
 		int ochun = (charge % WON10KVAL) / WON5KVAL;
 		int chun = (charge % WON5KVAL) / WON1KVAL;
@@ -19,25 +19,25 @@ public class ChangeMoney extends ReturnMoney
 
 		finalcharge = man*WON10KVAL + ochun*WON5KVAL + chun*WON1KVAL;
 
-		//ex) ³²´Âµ· ±İ¾× À¯Çü -> 300 500 800
-		// 500¹Ì¸¸ÀÏ ½Ã ±×³É ¹İÈ¯
-		// 500ÀÏ ½Ã ¹Ù·Î Âü°¡¿©ºÎ Áú¹®
-		// 500ÃÊ°úÀÏ ½Ã 500À» ³²±â°í (°Å½º¸§µ·-500) ÇÑ ±İ¾× ¹İÈ¯
+		//ex) ë‚¨ëŠ”ëˆ ê¸ˆì•¡ ìœ í˜• -> 300 500 800
+		// 500ë¯¸ë§Œì¼ ì‹œ ê·¸ëƒ¥ ë°˜í™˜
+		// 500ì¼ ì‹œ ë°”ë¡œ ì°¸ê°€ì—¬ë¶€ ì§ˆë¬¸
+		// 500ì´ˆê³¼ì¼ ì‹œ 500ì„ ë‚¨ê¸°ê³  (ê±°ìŠ¤ë¦„ëˆ-500) í•œ ê¸ˆì•¡ ë°˜í™˜
 
 		Buyer by = Buyer.getInstance();
 
 		if (charge-finalcharge < 500)
 		{
 			finalcharge = charge;
-			System.out.printf("%d¿øÀÌ ¹İÈ¯µÇ¾ú½À´Ï´Ù.\n", finalcharge);
+			System.out.printf("%dì›ì´ ë°˜í™˜ë˜ì—ˆìŠµë‹ˆë‹¤.\n", finalcharge);
 			by.buyerAddMoney(finalcharge);
 			return;
 		}
 		else if (charge-finalcharge == 500)
 		{		
 			Scanner sc = new Scanner(System.in);
-			System.out.printf("500¿øÀ» Á¦¿ÜÇÑ %d¿øÀÌ ¹İÈ¯µÇ¾ú½À´Ï´Ù.\n", finalcharge);
-			System.out.print("500¿øÀ¸·Î ·ê·¿¿¡ Âü°¡ÇÏ½Ã°Ú½À´Ï±î?(1->Âü°¡ 2->500¿ø¹İÈ¯) : ");
+			System.out.printf("500ì›ì„ ì œì™¸í•œ %dì›ì´ ë°˜í™˜ë˜ì—ˆìŠµë‹ˆë‹¤.\n", finalcharge);
+			System.out.print("500ì›ìœ¼ë¡œ ë£°ë ›ì— ì°¸ê°€í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(1->ì°¸ê°€ 2->500ì›ë°˜í™˜) : ");
 			//check = sc.nextInt();
 			check =1;	//===============test
 		}
@@ -46,22 +46,22 @@ public class ChangeMoney extends ReturnMoney
 			finalcharge = charge-500;
 
 			Scanner sc = new Scanner(System.in);
-			System.out.printf("500¿øÀ» Á¦¿ÜÇÑ %d¿øÀÌ ¹İÈ¯µÇ¾ú½À´Ï´Ù.\n", finalcharge);
-			System.out.print("500¿øÀ¸·Î ·ê·¿¿¡ Âü°¡ÇÏ½Ã°Ú½À´Ï±î?(1->Âü°¡ 2->500¿ø¹İÈ¯) : ");
+			System.out.printf("500ì›ì„ ì œì™¸í•œ %dì›ì´ ë°˜í™˜ë˜ì—ˆìŠµë‹ˆë‹¤.\n", finalcharge);
+			System.out.print("500ì›ìœ¼ë¡œ ë£°ë ›ì— ì°¸ê°€í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(1->ì°¸ê°€ 2->500ì›ë°˜í™˜) : ");
 			//check = sc.nextInt();
 			check =1;	//===============test
 		}
 
-		if (check == 1)	// Âü°¡Çß¾î
+		if (check == 1)	// ì°¸ê°€í–ˆì–´
 		{
-			//PrizeMoneyDisplay.stack();//: dp¿¡ 490¿ø Ãß°¡µÈ °ªÀ¸·Î »õ·Ó°Ô º¸¿©ÁØ´Ù.
+			//PrizeMoneyDisplay.stack();//: dpì— 490ì› ì¶”ê°€ëœ ê°’ìœ¼ë¡œ ìƒˆë¡­ê²Œ ë³´ì—¬ì¤€ë‹¤.
 			pmd.stack();
 			RouletteCal exe = new RouletteCal();
 			exe.rand(check,pmd);
 		}
 		else
 		{
-			System.out.println("500¿øÀÌ Ãß°¡·Î ¹İÈ¯µÇ¾ú½À´Ï´Ù.");
+			System.out.println("500ì›ì´ ì¶”ê°€ë¡œ ë°˜í™˜ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			finalcharge = finalcharge + 500;
 			won500Ea --;
 		}
@@ -73,13 +73,15 @@ public class ChangeMoney extends ReturnMoney
 		 won1kEa = won1kEa - chun;
 
 		 totalVal = (won10kEa*WON10KVAL) + (won5kEa*WON5KVAL) + (won1kEa*WON1KVAL) + (won500Ea*500);
+
 	}
 
 	@Override
 	public void enterMoney()
 	{
 		int fill = 5000000 - totalVal;
-		if (won10kEa <= 1 || won5kEa <= 1 || won1kEa <= 1||won500Ea <= 1) // Æ¯Á¤ ±İ¾×°¹¼ö°¡ 1 ÀÌÇÏ°¡ µÇ¸é ½ÇÇà
+		//System.out.printf("fill = %d\n", fill);				//í…ŒìŠ¤íŠ¸ ë¬¸êµ¬
+		if (won10kEa <= 1 || won5kEa <= 1 || won1kEa <= 1||won500Ea <= 1) // íŠ¹ì • ê¸ˆì•¡ê°¯ìˆ˜ê°€ 1 ì´í•˜ê°€ ë˜ë©´ ì‹¤í–‰
 		{
 			won10kEa = 100;
 			won5kEa = 200;	
@@ -89,7 +91,7 @@ public class ChangeMoney extends ReturnMoney
 			Admin ad = Admin.getInstance();
 			ad.subAdminMoney(fill);
 
-			//System.out.printf("%d ¿øÀÌ °ü¸®ÀÚ °èÁ¤¿¡¼­ ºüÁ³½À´Ï´Ù", fill); // Å×½ºÆ®¹®±¸
+			//System.out.printf("%d ì›ì´ ê´€ë¦¬ì ê³„ì •ì—ì„œ ë¹ ì¡ŒìŠµë‹ˆë‹¤", fill); // í…ŒìŠ¤íŠ¸ë¬¸êµ¬
 		}
 		else
 			return;
