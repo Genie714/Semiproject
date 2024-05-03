@@ -85,11 +85,8 @@ public class MainTest
 	
 	private static void print() throws InterruptedException
 	{
-		for(int i=0; i<20; i++)
-		{
-			System.out.println("=====================================");
-			System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-			System.out.println("=====================================");			
-		}
+		System.out.println("=====================================");
+		System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
+		System.out.println("=====================================");			
 	}
 }
