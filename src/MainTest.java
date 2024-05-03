@@ -40,7 +40,7 @@ public class MainTest
 			ob1.stock(al);
 			System.out.println("ÀÜµ· : " + ob1.change(al));
 			// ÀÜµ· ¹ÝÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
-			ChangeMoney cm = new ChangeMoney();
+			ChangeMoney cm = new ChangeMoney(); // °´Ã¼ »õ·Î ºÒ·¯¿À´Â°Å ¸»°í ±âÁ¸ °´Ã¼°¡Á®¿Í¾ß
 			cm.returnMoney(ob1.change(al), pmd);
 		}
 		
@@ -77,10 +77,33 @@ public class MainTest
 		
 	}
 	
-	private static void print()
+	private static void print() throws InterruptedException
 	{
-		System.out.println("=====================================");
-		System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-		System.out.println("=====================================");
+		for(int i=0; i<20; i++)
+		{
+			
+			System.out.println("=====================================");
+			System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
+			System.out.println("=====================================");
+			
+			Thread.sleep(100);
+			for(int j=0; j<111; j++)
+			{
+				System.out.printf("\b");
+			}
+			System.out.println("*************************************");
+			System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
+			System.out.println("*************************************");
+			
+			Thread.sleep(100);
+			for(int j=0; j<111; j++)
+			{
+				System.out.printf("\b");
+			}
+			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+			System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
+			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+			
+		}
 	}
 }
