@@ -8,7 +8,7 @@ public class ChangeMoney extends ReturnMoney
 	int totalVal;
 	
 	//@Override
-	public void returnMoney(int charge, PrizeMoneyDisplay pmd)	// 거스름돈 넘겨받음
+	public void returnMoney(int charge, PrizeMoneyDisplay pmd) throws Exception	// 거스름돈 넘겨받음
 	{
 		//System.out.printf("현재 거스름돈 통에 들어있는 돈은 %d원 입니다.\n",totalVal);
 		// charge == 거스름돈
@@ -38,7 +38,8 @@ public class ChangeMoney extends ReturnMoney
 			Scanner sc = new Scanner(System.in);
 			System.out.printf("500원을 제외한 %d원이 반환되었습니다.\n", finalcharge);
 			System.out.print("500원으로 룰렛에 참가하시겠습니까?(1->참가 2->500원반환) : ");
-			check = sc.nextInt();
+			//check = sc.nextInt();
+			check =1;	//===============test
 		}
 		else
 		{
@@ -47,7 +48,8 @@ public class ChangeMoney extends ReturnMoney
 			Scanner sc = new Scanner(System.in);
 			System.out.printf("500원을 제외한 %d원이 반환되었습니다.\n", finalcharge);
 			System.out.print("500원으로 룰렛에 참가하시겠습니까?(1->참가 2->500원반환) : ");
-			check = sc.nextInt();
+			//check = sc.nextInt();
+			check =1;	//===============test
 		}
 
 		if (check == 1)	// 참가했어
@@ -70,7 +72,7 @@ public class ChangeMoney extends ReturnMoney
 		 won5kEa = won5kEa - ochun;
 		 won1kEa = won1kEa - chun;
 
-		 int totalVal = (won10kEa*WON10KVAL) + (won5kEa*WON5KVAL) + (won1kEa*WON1KVAL) + (won500Ea*500);
+		 totalVal = (won10kEa*WON10KVAL) + (won5kEa*WON5KVAL) + (won1kEa*WON1KVAL) + (won500Ea*500);
 	}
 
 	@Override

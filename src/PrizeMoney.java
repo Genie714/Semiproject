@@ -6,6 +6,17 @@ public class PrizeMoney
 	protected int won1kEa = 2000;
 
 	int defaultPrize = 5000000;		// 당첨금통 금액 (500만) --> 실제 룰렛 디스플레이에서는 (10만+490n) 만큼 표시중
+	private static PrizeMoney instance;
+	
+
+	public static PrizeMoney getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new PrizeMoney();
+		}
+		return instance;
+	}
 
 
 	public void prizeMoney(String res,PrizeMoneyDisplay pmd)
@@ -20,13 +31,18 @@ public class PrizeMoney
 
 		switch (result) {
             case "aaa":
-                System.out.println("100,000￦ 당첨");
+                System.out.println("50,000￦ 당첨");
 				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
 				// pmd.stack();
 				// pmd.setTotalPrizeMoney(result);
 				pmd.setTotalPrizeMoney(result);
-                prize = 100000;
-				won50kEa = won50kEa - 2;
+                prize = 50000;
+				
+				won50kEa = won50kEa - 1;
+
+						///////
+				defaultPrize = defaultPrize - prize;
+				System.out.printf("현재 돈통에 남아있는 돈은 %d원입니다.\n",defaultPrize);		///////(테스트문구)
 				break;
                 
             case "bbb":
@@ -36,6 +52,10 @@ public class PrizeMoney
                 prize = 15000;
 				won5kEa = won5kEa - 1; 
 				won10kEa = won10kEa - 1;
+
+					///////
+				defaultPrize = defaultPrize - prize;
+				System.out.printf("현재 돈통에 남아있는 돈은 %d원입니다.\n",defaultPrize);		///////(테스트문구)
 				break;
                 
             case "ccc":
@@ -44,6 +64,10 @@ public class PrizeMoney
 				pmd.setTotalPrizeMoney(result);
                 prize = 5000;
 				won5kEa --;
+
+						///////
+				defaultPrize = defaultPrize - prize;
+				System.out.printf("현재 돈통에 남아있는 돈은 %d원입니다.\n",defaultPrize);		///////(테스트문구)
 				break;
                 
             case "ddd":
@@ -52,6 +76,10 @@ public class PrizeMoney
 				pmd.setTotalPrizeMoney(result);
                 prize = 1000;
 				won1kEa --;
+				
+				
+				defaultPrize = defaultPrize - prize;		///////
+				System.out.printf("현재 돈통에 남아있는 돈은 %d원입니다.\n",defaultPrize);		///////(테스트문구)
 				break;
                 
             case "777":
@@ -65,11 +93,12 @@ public class PrizeMoney
 				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
 				pmd.setTotalPrizeMoney(result);
                 System.out.println("실패!");
+				System.out.printf("현재 돈통에 남아있는 돈은 %d원입니다.\n",defaultPrize);
                 
         }
 
 		by.buyerAddMoney(prize);	// 구매자에게 돈 줌
-		defaultPrize = defaultPrize - prize; // 현재 당첨금 돈통에서 당첨 금액만큼 차감
+		//defaultPrize = defaultPrize - prize; // 현재 당첨금 돈통에서 당첨 금액만큼 차감
 		
 		//System.out.printf("현재 %d만큼의 돈이 남아있습니다.\n", defaultPrize); // 테스트 문구( 나중에 지울것 )
 
@@ -90,7 +119,7 @@ public class PrizeMoney
 
 			won50kEa = 100;
 			won10kEa = 100;
-			won10kEa = 200;	
+			won5kEa = 200;	
 			won1kEa = 2000;
 
 			ad.subAdminMoney(5000000 - defaultPrize);
