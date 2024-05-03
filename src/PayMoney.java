@@ -20,6 +20,14 @@ public class PayMoney
 		salesMoney += money;	
 	}
 
+
+	public int getSalesMoney()
+	{
+		return salesMoney;
+	}
+
+
+
 	public void outputSalesMoney()
 	{
 		Admin ad = Admin.getInstance();
