@@ -8,8 +8,8 @@
 	final int WON5KVAL = 5000;
 	final int WON1KVAL = 1000;
 
-	abstract public void enterMoney();
+	//abstract public void returnMoney(int money);
 
-	abstract public void returnMoney(int money);
+	abstract public void enterMoney();
 
 }
