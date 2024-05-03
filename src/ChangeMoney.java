@@ -7,8 +7,8 @@ public class ChangeMoney extends ReturnMoney
 	int finalcharge;
 	int totalVal;
 	
-	@Override
-	public void returnMoney(int charge)	// 거스름돈 넘겨받음
+	//@Override
+	public void returnMoney(int charge, PrizeMoneyDisplay pmd)	// 거스름돈 넘겨받음
 	{
 		//System.out.printf("현재 거스름돈 통에 들어있는 돈은 %d원 입니다.\n",totalVal);
 		// charge == 거스름돈
@@ -52,9 +52,10 @@ public class ChangeMoney extends ReturnMoney
 
 		if (check == 1)	// 참가했어
 		{
-			PrizeMoneyDisplay.stack();//: dp에 490원 추가된 값으로 새롭게 보여준다.
+			//PrizeMoneyDisplay.stack();//: dp에 490원 추가된 값으로 새롭게 보여준다.
+			pmd.stack();
 			RouletteCal exe = new RouletteCal();
-			exe.rand(check);
+			exe.rand(check,pmd);
 		}
 		else
 		{
@@ -69,13 +70,15 @@ public class ChangeMoney extends ReturnMoney
 		 won5kEa = won5kEa - ochun;
 		 won1kEa = won1kEa - chun;
 
-		 int totalVal = (won10kEa*WON10KVAL) + (won5kEa*WON5KVAL) + (won1kEa*WON1KVAL) + (won500Ea*500);
+		 totalVal = (won10kEa*WON10KVAL) + (won5kEa*WON5KVAL) + (won1kEa*WON1KVAL) + (won500Ea*500);
+		 //System.out.printf("totalVal = %d\n", totalVal);	//테스트 문구
 	}
 
 	@Override
 	public void enterMoney()
 	{
 		int fill = 5000000 - totalVal;
+		//System.out.printf("fill = %d\n", fill);				//테스트 문구
 		if (won10kEa <= 1 || won5kEa <= 1 || won1kEa <= 1||won500Ea <= 1) // 특정 금액갯수가 1 이하가 되면 실행
 		{
 			won10kEa = 100;

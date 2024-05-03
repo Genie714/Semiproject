@@ -5,10 +5,21 @@ public class PrizeMoney
 	protected int won5kEa = 200;
 	protected int won1kEa = 2000;
 
-	int defaultPrize = 5000000;		// ´çÃ·±İÅë ±İ¾× (500¸¸) --> ½ÇÁ¦ ·ê·¿ µğ½ºÇÃ·¹ÀÌ¿¡¼­´Â (10¸¸+490n) ¸¸Å­ Ç¥½ÃÁß
+	int defaultPrize = 5000000;		// ë‹¹ì²¨ê¸ˆí†µ ê¸ˆì•¡ (500ë§Œ) --> ì‹¤ì œ ë£°ë › ë””ìŠ¤í”Œë ˆì´ì—ì„œëŠ” (10ë§Œ+490n) ë§Œí¼ í‘œì‹œì¤‘
+	private static PrizeMoney instance;
+	
+
+	public static PrizeMoney getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new PrizeMoney();
+		}
+		return instance;
+	}
 
 
-	public void prizeMoney(String res)
+	public void prizeMoney(String res,PrizeMoneyDisplay pmd)
 	{
 		
 		Admin ad = Admin.getInstance();
@@ -20,79 +31,105 @@ public class PrizeMoney
 
 		switch (result) {
             case "aaa":
-                System.out.println("100,000£Ü ´çÃ·");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+                System.out.println("50,000ï¿¦ ë‹¹ì²¨");
+
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
 				// pmd.stack();
 				// pmd.setTotalPrizeMoney(result);
-                prize = 100000;
-				won50kEa = won50kEa - 2;
+				pmd.setTotalPrizeMoney(result);
+                prize = 50000;
+				
+				won50kEa = won50kEa - 1;
+
+						///////
+				defaultPrize = defaultPrize - prize;
+				System.out.printf("í˜„ì¬ ëˆí†µì— ë‚¨ì•„ìˆëŠ” ëˆì€ %dì›ì…ë‹ˆë‹¤.\n",defaultPrize);		///////(í…ŒìŠ¤íŠ¸ë¬¸êµ¬)
+
+
 				break;
                 
             case "bbb":
-                System.out.println("15,000£Ü ´çÃ·");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+                System.out.println("15,000ï¿¦ ë‹¹ì²¨");
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 prize = 15000;
-				won5kEa = won5kEa - 1;
+				won5kEa = won5kEa - 1; 
 				won10kEa = won10kEa - 1;
+
+					///////
+				defaultPrize = defaultPrize - prize;
+				System.out.printf("í˜„ì¬ ëˆí†µì— ë‚¨ì•„ìˆëŠ” ëˆì€ %dì›ì…ë‹ˆë‹¤.\n",defaultPrize);		///////(í…ŒìŠ¤íŠ¸ë¬¸êµ¬)
 				break;
                 
             case "ccc":
-                System.out.println("5,000£Ü ´çÃ·");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+                System.out.println("5,000ï¿¦ ë‹¹ì²¨");
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 prize = 5000;
 				won5kEa --;
+
+						///////
+				defaultPrize = defaultPrize - prize;
+				System.out.printf("í˜„ì¬ ëˆí†µì— ë‚¨ì•„ìˆëŠ” ëˆì€ %dì›ì…ë‹ˆë‹¤.\n",defaultPrize);		///////(í…ŒìŠ¤íŠ¸ë¬¸êµ¬)
 				break;
                 
             case "ddd":
-                System.out.println("1,000£Ü ´çÃ·");
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+                System.out.println("1,000ï¿¦ ë‹¹ì²¨");
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
                 prize = 1000;
 				won1kEa --;
+				
+				
+				defaultPrize = defaultPrize - prize;		///////
+				System.out.printf("í˜„ì¬ ëˆí†µì— ë‚¨ì•„ìˆëŠ” ëˆì€ %dì›ì…ë‹ˆë‹¤.\n",defaultPrize);		///////(í…ŒìŠ¤íŠ¸ë¬¸êµ¬)
 				break;
                 
             case "777":
                 System.out.println("!!!JACKPOT!!!");
-                System.out.println("´çÃ·±İÀº °ü¸®ÀÚ¿¡°Ô ¹Ş¾Æ°¡¼¼¿ä");	// °ü¸®ÀÚ È£Ãâ Ãß°¡
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
+                System.out.println("ë‹¹ì²¨ê¸ˆì€ ê´€ë¦¬ìì—ê²Œ ë°›ì•„ê°€ì„¸ìš”");	// ê´€ë¦¬ì í˜¸ì¶œ ì¶”ê°€
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
 				break;
                 
             default:
-				PrizeMoneyDisplay.setTotalPrizeMoney(result);
-                System.out.println("½ÇÆĞ!");
+				//PrizeMoneyDisplay.setTotalPrizeMoney(result);
+				pmd.setTotalPrizeMoney(result);
+                System.out.println("ì‹¤íŒ¨!");
+				System.out.printf("í˜„ì¬ ëˆí†µì— ë‚¨ì•„ìˆëŠ” ëˆì€ %dì›ì…ë‹ˆë‹¤.\n",defaultPrize);
                 
         }
 
-		by.buyerAddMoney(prize);	// ±¸¸ÅÀÚ¿¡°Ô µ· ÁÜ
-		defaultPrize = defaultPrize - prize; // ÇöÀç ´çÃ·±İ µ·Åë¿¡¼­ ´çÃ· ±İ¾×¸¸Å­ Â÷°¨
+		by.buyerAddMoney(prize);	// êµ¬ë§¤ìì—ê²Œ ëˆ ì¤Œ
+		//defaultPrize = defaultPrize - prize; // í˜„ì¬ ë‹¹ì²¨ê¸ˆ ëˆí†µì—ì„œ ë‹¹ì²¨ ê¸ˆì•¡ë§Œí¼ ì°¨ê°
 		
-		//System.out.printf("ÇöÀç %d¸¸Å­ÀÇ µ·ÀÌ ³²¾ÆÀÖ½À´Ï´Ù.\n", defaultPrize); // Å×½ºÆ® ¹®±¸( ³ªÁß¿¡ Áö¿ï°Í )
+		//System.out.printf("í˜„ì¬ %dë§Œí¼ì˜ ëˆì´ ë‚¨ì•„ìˆìŠµë‹ˆë‹¤.\n", defaultPrize); // í…ŒìŠ¤íŠ¸ ë¬¸êµ¬( ë‚˜ì¤‘ì— ì§€ìš¸ê²ƒ )
 
-		if (defaultPrize <= 100000)			// µ·ÅëÀÌ 10¸¸¿ø ÀÌÇÏ°¡ µÇ¸é
+		if (defaultPrize <= 100000)			// ëˆí†µì´ 10ë§Œì› ì´í•˜ê°€ ë˜ë©´
 		{
-			ad.subAdminMoney(5000000 - defaultPrize);		// °ü¸®ÀÚÇÑÅ×¼­ 500±îÁö ÇÊ¿äÇÑ ±İ¾×¸¸Å­ ºüÁü
-			defaultPrize = 5000000;							// ´Ù½Ã 500À¸·Î Ã¤¿ö³Ö°í
+			ad.subAdminMoney(5000000 - defaultPrize);		// ê´€ë¦¬ìí•œí…Œì„œ 500ê¹Œì§€ í•„ìš”í•œ ê¸ˆì•¡ë§Œí¼ ë¹ ì§
+			defaultPrize = 5000000;							// ë‹¤ì‹œ 500ìœ¼ë¡œ ì±„ì›Œë„£ê³ 
 			
 
 			won50kEa = 100;
 			won10kEa = 100;
 			won5kEa = 200;	
-			won1kEa = 2000;					// ÁöÆóµéµµ ½Ï ´Ù½Ã Ã¤¿ì±â
+			won1kEa = 2000;					// ì§€íë“¤ë„ ì‹¹ ë‹¤ì‹œ ì±„ìš°ê¸°
 		}
-		else if (won50kEa <= 1 || won10kEa <= 1 || won5kEa <= 1 || won1kEa <= 1) // Æ¯Á¤ ÁöÆó°¡ 1Àå¹Û¿¡ ¾È³²À¸¸é
+		else if (won50kEa <= 1 || won10kEa <= 1 || won5kEa <= 1 || won1kEa <= 1) // íŠ¹ì • ì§€íê°€ 1ì¥ë°–ì— ì•ˆë‚¨ìœ¼ë©´
 		{
+			ad.subAdminMoney(5000000 - defaultPrize);
+
 			defaultPrize = 5000000;
 
 			won50kEa = 100;
 			won10kEa = 100;
-			won10kEa = 200;	
+			won5kEa = 200;	
 			won1kEa = 2000;
-
-			ad.subAdminMoney(5000000 - defaultPrize);
 			
-			
-		} // ´Ù½Ã Ã¤¿ö³Ö±â
+		} // ë‹¤ì‹œ ì±„ì›Œë„£ê¸°
 		
-		//System.out.printf("ÇöÀç ¿À¸¸¿ø±ÇÀº %d, ¸¸¿ø±ÇÀº %d°¡ ³²¾ÆÀÖ½À´Ï´Ù.\n", won50kEa, won10kEa); // Å×½ºÆ® ¹®±¸( ³ªÁß¿¡ Áö¿ï°Í )
+		//System.out.printf("í˜„ì¬ ì˜¤ë§Œì›ê¶Œì€ %d, ë§Œì›ê¶Œì€ %dê°€ ë‚¨ì•„ìˆìŠµë‹ˆë‹¤.\n", won50kEa, won10kEa); // í…ŒìŠ¤íŠ¸ ë¬¸êµ¬( ë‚˜ì¤‘ì— ì§€ìš¸ê²ƒ )
 		
 	}
 	

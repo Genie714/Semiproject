@@ -8,7 +8,7 @@ public class SaveObject
 {
 	String appDir = System.getProperty("user.dir");
 	
-	public void saveObject(Alcohol alc) throws Exception
+	public void saveObject() throws Exception
 	{
 		File f0 = new File(appDir, "\\data\\test.ser");
 		if (!f0.getParentFile().exists())
@@ -22,7 +22,7 @@ public class SaveObject
 		
 		h1.put("Admin", Admin.getInstance());
 		//h1.put("Buyer", Buyer.getInstance());
-		h1.put("Alcohol", alc );
+		//h1.put("Alcohol", alc );
 		
 		FileOutputStream fos = new FileOutputStream(f0);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
