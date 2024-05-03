@@ -40,8 +40,8 @@ public class MainTest
 			ob1.stock(al);
 			System.out.println("ÀÜµ· : " + ob1.change(al));
 			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
-			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob1.change(al));
+			ChangeMoney cm = new ChangeMoney(); // °´Ã¼ »õ·Î ºÒ·¯¿À´Â°Å ¸»°í ±âÁ¸ °´Ã¼°¡Á®¿Í¾ß
+			cm.returnMoney(ob1.change(al), pmd);
 		}
 		
 		if(a==2)
@@ -53,7 +53,7 @@ public class MainTest
 			System.out.println("ÀÜµ· : " + ob2.change(al));
 			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob2.change(al));
+			cm.returnMoney(ob2.change(al), pmd);
 		}
 		
 		if(a==3)
@@ -63,7 +63,13 @@ public class MainTest
 			System.out.println("ÀÜµ· : " + ob3.change(price));
 			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob3.change(price));
+			cm.returnMoney(ob3.change(price), pmd);
+		}
+		
+		//°ü¸®ÀÚ¸ğµåÃâ·Â
+		if(a==123)
+		{
+			AdminMode.adminMenu();
 		}
 		
 		//´çÃ·±İ ¹İÈ¯
@@ -77,10 +83,10 @@ public class MainTest
 		
 	}
 	
-	private static void print()
+	private static void print() throws InterruptedException
 	{
 		System.out.println("=====================================");
 		System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-		System.out.println("=====================================");
+		System.out.println("=====================================");		
 	}
 }

@@ -4,7 +4,7 @@ class RouletteCal   // chageMoney 클래스에서 whetherRunRoulette()이 return 1 or 
 
     // 스태틱 하면 편할거 같긴한디
 
-    public void rand(int start) // 1 들어오면
+    public void rand(int start,PrizeMoneyDisplay pmd) // 1 들어오면
     {
         if(start ==1)
         {
@@ -39,7 +39,7 @@ class RouletteCal   // chageMoney 클래스에서 whetherRunRoulette()이 return 1 or 
 
 			
 			PrizeMoney pm = new PrizeMoney();
-			pm.prizeMoney(res);
+			pm.prizeMoney(res,pmd);
         }
         else
         {
