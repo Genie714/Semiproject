@@ -20,7 +20,9 @@ class SingleItem extends AlcoholVendingMachine
 	@Override
 	protected void alcoholReturn(int al)
 	{
+
 		Map<String,Integer> map = new HashMap<String,Integer>();
+
 
 
 		String result = "";
@@ -37,16 +39,19 @@ class SingleItem extends AlcoholVendingMachine
 		case 8: result = "시바스리갈"; break;
 		case 9: result = "몽키 숄더"; break;
 
+
 		}
 
 		System.out.println(result);
 		map.put(result,300);
 		//System.out.println(map);
+
 	}
 	
 	@Override
 	protected void list()
 	{	
+
       System.out.printf("1 %s              (%d￦)    ","소주",7500);
       System.out.printf("2 %s       (%d￦)    ","맥주",9500);
       System.out.printf("3 %s      (%d￦)\n","소맥",8500);
@@ -63,6 +68,7 @@ class SingleItem extends AlcoholVendingMachine
 
 	@Override
 	protected int change(int al)                         
+
 	{
 		
 		int price = 0;
@@ -79,6 +85,7 @@ class SingleItem extends AlcoholVendingMachine
 		case 8: price = 12500; break;
 		case 9: price = 13500; break;
 		}
+
 		
 
 		int changeMoney = getMoney() - price;
@@ -98,6 +105,7 @@ class SingleItem extends AlcoholVendingMachine
 
 
 	protected void stock(int al)						// 모든 종류의 술 재고 정리해주는 메소드
+
 	{
 		int result = 0;
 		
@@ -122,18 +130,19 @@ class SingleItem extends AlcoholVendingMachine
 		
 	}
 
-	protected void alcoholRun()
-	{
-		Scanner sc = new Scanner(System.in);
 
+	protected int alcoholRun()
+	{
 		list();
 		int al = alcoholChoose();
 		alcoholReturn(al);
 		stock(al);
-		System.out.println("잔돈 : " + change(al));
+		
 		
 		System.out.println();
 				
+		/*
+		Scanner sc = new Scanner(System.in);
 		System.out.print("술을 추가로 선택하시겠습니까?(Y/N) : ");
 		String add = sc.next();
 		char check = add.charAt(0);
@@ -142,7 +151,7 @@ class SingleItem extends AlcoholVendingMachine
 		{
 			break;
 		}
-		
+		*/
+		return al;
 	}
-
 }

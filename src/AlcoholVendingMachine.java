@@ -24,12 +24,12 @@ abstract class AlcoholVendingMachine					// 상위클래스
 
 	protected int getMoney()							// 돈 입력받는 메소드
 	{
-		PayMoney pm = PayMoney.getInstance();
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("돈을 입력하시오 : ");
 		int money = sc.nextInt();
 
+		PayMoney pm = PayMoney.getInstance();
 		pm.inputMoney(money);
 
 		return money;
