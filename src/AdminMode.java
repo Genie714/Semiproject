@@ -46,6 +46,26 @@ public class AdminMode
 		else if(adminChoose == 2)
 		{
 			System.out.println("\n[자판기 재고 관리]");
+			System.out.println("1. 상품 재고 관리");
+			System.out.println("2. 자판기 금전 관리");
+			int adminChoose2;
+			do
+			{
+				adminChoose2 = sc.nextInt();
+				
+			}
+			while(adminChoose2<1 || adminChoose2>2);
+			
+			if(adminChoose2==1)
+			{
+				//상품 재고 채움
+				//얼마나 채웠는지 보여주기
+			}
+			else if(adminChoose2==2)
+			{
+				//1.매출통에서 돈을 빼기
+				//2.거스름 및 보상 돈통 채우
+			}
 		}
 	}
 }
