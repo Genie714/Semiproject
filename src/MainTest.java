@@ -40,7 +40,7 @@ public class MainTest
 			ob1.stock(al);
 			System.out.println("잔돈 : " + ob1.change(al));
 			// 잔돈 반환 //룰렛 클래스 진행
-			ChangeMoney cm = new ChangeMoney(); // 객체 새로 불러오는거 말고 기존 객체가져와야
+			ChangeMoney cm = new ChangeMoney();
 			cm.returnMoney(ob1.change(al), pmd);
 		}
 		
@@ -66,12 +66,6 @@ public class MainTest
 			cm.returnMoney(ob3.change(price), pmd);
 		}
 		
-		//관리자모드출력
-		if(a==123)
-		{
-			AdminMode.adminMenu();
-		}
-		
 		//당첨금 반환
 		
 		
@@ -83,10 +77,10 @@ public class MainTest
 		
 	}
 	
-	private static void print() throws InterruptedException
+	private static void print()
 	{
 		System.out.println("=====================================");
 		System.out.println(" ■■■ 500룰렛 칵테일 자판기 ■■■");
-		System.out.println("=====================================");		
+		System.out.println("=====================================");
 	}
 }
