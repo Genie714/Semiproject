@@ -47,7 +47,7 @@ class RouletteCal   // chageMoney 클래스에서 whetherRunRoulette()이 return 1 or 
 			 Thread.sleep(i);
 			 System.out.printf("\b\b\b\b\b");
 
-			 System.out.printf("C D B");
+			 System.out.printf("7 7 7");
 			 Thread.sleep(i);
 			 System.out.printf("\b\b\b\b\b");
 
