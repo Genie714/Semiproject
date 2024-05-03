@@ -1,34 +1,34 @@
 import java.io.*;
 import java.util.*;
 
-abstract class AlcoholVendingMachine					// ìƒìœ„í´ë˜ìŠ¤
+abstract class AlcoholVendingMachine					// »óÀ§Å¬·¡½º
 {
 	
 
-	protected abstract void alcoholReturn(int al);		// ìˆ ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+	protected abstract void alcoholReturn(int al);		// ¼úÀ» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
 	
-	protected abstract void list();						// ìˆ  ë¦¬ìŠ¤íŠ¸
+	protected abstract void list();						// ¼ú ¸®½ºÆ®
 		
-	protected abstract int change(int al);				// ê³ ë¥¸ ìˆ ì— ëŒ€í•œ ê°’ì„ ì…ë ¥ë°›ì€ ê°’ì—ì„œ ë¹¼ì£¼ëŠ” ë©”ì†Œë“œ
+	protected abstract int change(int al);				// °í¸¥ ¼ú¿¡ ´ëÇÑ °ªÀ» ÀÔ·Â¹ŞÀº °ª¿¡¼­ »©ÁÖ´Â ¸Ş¼Òµå
 	
-	protected int alcoholChoose()						// ìˆ ì„ ì„ íƒí•˜ëŠ” ë©”ì†Œë“œ
+	protected int alcoholChoose()						// ¼úÀ» ¼±ÅÃÇÏ´Â ¸Ş¼Òµå
 	{
 		
 		int al;
 		Scanner sc = new Scanner(System.in);
-		System.out.print("ìˆ ì„ ì„ íƒí•˜ì‹œì˜¤ : ");
+		System.out.print("¼úÀ» ¼±ÅÃÇÏ½Ã¿À : ");
 		al = sc.nextInt();
 		return al;
 	}
 	
 
-	protected int getMoney()							// ëˆ ì…ë ¥ë°›ëŠ” ë©”ì†Œë“œ
+	protected int getMoney()							// µ· ÀÔ·Â¹Ş´Â ¸Ş¼Òµå
 	{
 		PayMoney pm = PayMoney.getInstance();
 		pm.inputMoney(money);
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.print("ëˆì„ ì…ë ¥í•˜ì‹œì˜¤ : ");
+		System.out.print("µ·À» ÀÔ·ÂÇÏ½Ã¿À : ");
 		int money = sc.nextInt();
 
 		return money;

@@ -1,4 +1,4 @@
-// AlcoholVendingMachine í´ë˜ìŠ¤ ìƒì†ë°›ëŠ” í´ë˜ìŠ¤ ì„¤ê³„
+// AlcoholVendingMachine Å¬·¡½º »ó¼Ó¹Ş´Â Å¬·¡½º ¼³°è
 
 import java.io.*;
 import java.util.*;
@@ -29,15 +29,15 @@ class SingleItem extends AlcoholVendingMachine
 		
 		switch (al)
 		{
-		case 1: result = "ì†Œì£¼"; break;
-		case 2: result = "ë§¥ì£¼"; break;
-		case 3: result = "ì†Œë§¥"; break;
-		case 4: result = "ê¼¬ëƒ‘"; break;
-		case 5: result = "ë°œë Œíƒ€ì¸ 12"; break;
-		case 6: result = "ë°í‚¬ë¼"; break;
-		case 7: result = "ì¡°ë‹ˆì›Œì»¤ ë¸”ë™ë¼ë²¨"; break;
-		case 8: result = "ì‹œë°”ìŠ¤ë¦¬ê°ˆ"; break;
-		case 9: result = "ëª½í‚¤ ìˆ„ë”"; break;
+		case 1: result = "¼ÒÁÖ"; break;
+		case 2: result = "¸ÆÁÖ"; break;
+		case 3: result = "¼Ò¸Æ"; break;
+		case 4: result = "²¿³Å"; break;
+		case 5: result = "¹ß·»Å¸ÀÎ 12"; break;
+		case 6: result = "µ¥Å³¶ó"; break;
+		case 7: result = "Á¶´Ï¿öÄ¿ ºí·¢¶óº§"; break;
+		case 8: result = "½Ã¹Ù½º¸®°¥"; break;
+		case 9: result = "¸ùÅ° ¼ñ´õ"; break;
 
 
 		}
@@ -52,15 +52,15 @@ class SingleItem extends AlcoholVendingMachine
 	protected void list()
 	{	
 
-      System.out.printf("1 %s              (%dï¿¦)    ","ì†Œì£¼",7500);
-      System.out.printf("2 %s       (%dï¿¦)    ","ë§¥ì£¼",9500);
-      System.out.printf("3 %s      (%dï¿¦)\n","ì†Œë§¥",8500);
-      System.out.printf("4 %s              (%dï¿¦)   ","ê¼¬ëƒ‘",18500);
-      System.out.printf("5 %s (%dï¿¦)   ","ë°œë Œíƒ€ì¸12",11500);
-      System.out.printf("6 %s    (%dï¿¦)\n","ë°í‚¬ë¼",10500);
-      System.out.printf("7 %s (%dï¿¦)   ","ì¡°ë‹ˆì›Œì»¤ ë¸”ë™ë¼ë²¨",14500);
-      System.out.printf("8 %s (%dï¿¦)   ","ì‹œë°”ìŠ¤ë¦¬ê°ˆ",12500);
-      System.out.printf("9 %s (%dï¿¦)\n","ëª½í‚¤ ìˆ„ë”",13500);
+      System.out.printf("1 %s              (%d£Ü)    ","¼ÒÁÖ",7500);
+      System.out.printf("2 %s       (%d£Ü)    ","¸ÆÁÖ",9500);
+      System.out.printf("3 %s      (%d£Ü)\n","¼Ò¸Æ",8500);
+      System.out.printf("4 %s              (%d£Ü)   ","²¿³Å",18500);
+      System.out.printf("5 %s (%d£Ü)   ","¹ß·»Å¸ÀÎ12",11500);
+      System.out.printf("6 %s    (%d£Ü)\n","µ¥Å³¶ó",10500);
+      System.out.printf("7 %s (%d£Ü)   ","Á¶´Ï¿öÄ¿ ºí·¢¶óº§",14500);
+      System.out.printf("8 %s (%d£Ü)   ","½Ã¹Ù½º¸®°¥",12500);
+      System.out.printf("9 %s (%d£Ü)\n","¸ùÅ° ¼ñ´õ",13500);
       
       System.out.println();
       		
@@ -92,7 +92,7 @@ class SingleItem extends AlcoholVendingMachine
 
 		while (changeMoney < 0)
 		{
-			System.out.println("ì…ë ¥í•œ ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+			System.out.println("ÀÔ·ÂÇÑ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 			System.out.println();
 
 			changeMoney = getMoney() - price;
@@ -104,7 +104,7 @@ class SingleItem extends AlcoholVendingMachine
 	}
 
 
-	protected void stock(int al)						// ëª¨ë“  ì¢…ë¥˜ì˜ ìˆ  ì¬ê³  ì •ë¦¬í•´ì£¼ëŠ” ë©”ì†Œë“œ
+	protected void stock(int al)						// ¸ğµç Á¾·ùÀÇ ¼ú Àç°í Á¤¸®ÇØÁÖ´Â ¸Ş¼Òµå
 
 	{
 		int result = 0;
@@ -124,7 +124,7 @@ class SingleItem extends AlcoholVendingMachine
 		
 		if (result==100)
 		{
-			System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+			System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 		}
 		System.out.println();
 		
@@ -137,11 +137,11 @@ class SingleItem extends AlcoholVendingMachine
 		int al = alcoholChoose();
 		alcoholReturn(al);
 		stock(al);
-		System.out.println("ì”ëˆ : " + change(al));
+		System.out.println("ÀÜµ· : " + change(al));
 		
 		System.out.println();
 				
-		System.out.print("ìˆ ì„ ì¶”ê°€ë¡œ ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ?(Y/N) : ");
+		System.out.print("¼úÀ» Ãß°¡·Î ¼±ÅÃÇÏ½Ã°Ú½À´Ï±î?(Y/N) : ");
 		String add = sc.next();
 		char check = add.charAt(0);
 
