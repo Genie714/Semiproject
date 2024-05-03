@@ -100,15 +100,15 @@ class PresetCocktail extends AlcoholVendingMachine
 		case 10: price = 14500; break;
 		}
 		
-        int temp = getMoney();
-		int changeMoney = temp - price;
+         
+		int changeMoney = getMoney() - price;
 
 		while (changeMoney < 0)
 		{
 			System.out.println("입력한 돈이 부족합니다. 다시 입력해주세요.");
 			System.out.println();
 
-			changeMoney = temp - price;
+			changeMoney = getMoney() - price;
 		}
 
 		return changeMoney;
