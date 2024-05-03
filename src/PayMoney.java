@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class PayMoney
 {
@@ -16,12 +15,10 @@ public class PayMoney
 		return instance;
 	}
  
-	
 	public void inputMoney(int money)
 	{
 		salesMoney += money;	
 	}
-	
 
 	public void outputSalesMoney()
 	{
