@@ -4,13 +4,13 @@ class RouletteCal   // chageMoney 클래스에서 whetherRunRoulette()이 return 1 or 
 
     // 스태틱 하면 편할거 같긴한디
 
-    public void rand(int start,PrizeMoneyDisplay pmd) // 1 들어오면
+    public void rand(int start,PrizeMoneyDisplay pmd) throws Exception// 1 들어오면
     {
         if(start ==1)
         {
             String res = "";
 			System.out.println("===========================");
-            System.out.println("\t게임 시작");
+            System.out.println("\t 게임 시작");
 			System.out.println("===========================");
 
             double rand;
@@ -28,17 +28,96 @@ class RouletteCal   // chageMoney 클래스에서 whetherRunRoulette()이 return 1 or 
                     arr[i] = 'b';
                 else if (roun >= 30.00 && roun < 60.00)
                     arr[i] = 'c';
-                else if (roun >= 60.00 && roun < 99.97)
+                else if (roun >= 60.00 && roun < 99.90)
                     arr[i] = 'd';
                 else
                     arr[i] = '7';
                 res = res + arr[i];
             }
-			
-            System.out.println(">>>  " + res + "  <<<");
+
+			// 쫘라라라라락
+
+		  for (int i =100 ;i<400 ;i+=50 )
+		  {
+			 System.out.printf("A B C");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b\b");
+
+			 System.out.printf("B C A");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b\b");
+
+			 System.out.printf("C D B");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b\b");
+
+			 System.out.printf("D A 7");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b\b");
+
+			 System.out.printf("A C D");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b\b");
+		  }
+
+		  System.out.printf("\b\b\b\b\b");
+		  System.out.printf("[%c]",Character.toUpperCase(arr[0]));
+		  for (int i =500 ;i<600 ;i+=50 )
+		  {
+			 System.out.printf(" B C");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b");
+
+			 System.out.printf(" C A");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b");
+
+			 System.out.printf(" D B");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b");
+
+			 System.out.printf(" A 7");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b");
+
+			 System.out.printf(" C D");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b\b\b");
+
+		  }
+		  //System.out.printf("\b\b\b");
+		  System.out.printf(" [%c]",Character.toUpperCase(arr[1]));
+
+		  for (int i =700 ;i<750 ;i+=50 )
+		  {
+			 System.out.printf(" 7");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b");
+
+			 System.out.printf(" A");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b");
+
+			 System.out.printf(" B");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b");
+
+			 System.out.printf(" C");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b");
+
+			 System.out.printf(" D");
+			 Thread.sleep(i);
+			 System.out.printf("\b\b");
+		  }
+		  System.out.printf(" [%c]",Character.toUpperCase(arr[2]));
+		  System.out.println();
 
 			
-			PrizeMoney pm = new PrizeMoney();
+            
+
+			//PrzieMoney pm = new PrizeMoney();
+			PrizeMoney pm = PrizeMoney.getInstance();
 			pm.prizeMoney(res,pmd);
         }
         else
