@@ -3,25 +3,25 @@ import java.util.Scanner;
 public class PayMoney
 {
 	private int salesMoney=0;
-
-	/*
-	public int inputMoney()
+  
+	
+	public void inputMoney(int money)
 	{
-		Scanner sc = new Scanner(System.in);
-		System.out.print("���� �Է��ϼ��� : ");
-		int money =  sc.nextInt();
-		return money;
-		
+		salesMoney += money;	
 	}
-	*/
+	
 
-	public void outputSalesMoney(int money)
+	public void outputSalesMoney()
 	{
 		Admin ad = Admin.getInstance();
-		salesMoney += money;
-		ad.addAdminmoney(salesMoney); // �Է¹��� ���� ���������� �ѱ�
 		
+		ad.addAdminmoney(salesMoney); // 입력받은 돈을 관리자한테 넘김
+
+		//System.out.printf("현재 돈통에 %d원이 쌓여있습니다\n",salesMoney);	// 테스트용 문구
+
+		salesMoney = 0;				  // 넘겨줬으니 다시 초기화
+
+		//System.out.printf("현재 돈통에 %d원이 쌓여있습니다.\n",salesMoney); // 테스트용 문구
+
 	}
 }
-
-
