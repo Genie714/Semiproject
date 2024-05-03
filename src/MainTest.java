@@ -87,6 +87,6 @@ public class MainTest
 	{
 		System.out.println("=====================================");
 		System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
-		System.out.println("=====================================");			
+		System.out.println("=====================================");		
 	}
 }

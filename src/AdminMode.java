@@ -18,6 +18,7 @@ public class AdminMode
 		System.out.println("■ 매출 ■자판기 이용횟수(칵테일) ■룰렛 통계(이용횟수, 당첨횟수, 당첨금액) ■인기메뉴");
 		System.out.println("2. 자판기 재고 관리");
 		System.out.println("■ 상품 재고관리 ■ 금전관리");
+		System.out.print("메뉴 선택 : ");
 		
 		int adminChoose;
 		do
