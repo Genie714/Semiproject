@@ -22,45 +22,50 @@ public class MainTest
 		print();
 		pmd.showTotalPrize();
 		
-
 		
 		//Alcohol Å¬·¡½º ÁøÇà(Alcohol º¹»ç ºÙ¿©³Ö±â)
 		SingleItem ob1 = new SingleItem();
 		PresetCocktail ob2 = new PresetCocktail();
 		CustomCocktail ob3 = new CustomCocktail();
 		
-		while (true)
-		{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("3°¡Áö À¯Çü Áß ÇÏ³ª¸¦ ¼±ÅÃÇÏ¼¼¿ä (¨ç ´ÜÇ° / ¨è ÇÁ¸®¼Â(Ä¬Å×ÀÏ) / ¨é Ä¿½ºÅÒ(Ä¬Å×ÀÏ) : ");
+		int a = sc.nextInt();
 		
-			if(a==1)
-			{
-				ob1.alcoholRun();
-				// ÀÜµ· ¹ÝÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
-				ChangeMoney cm = new ChangeMoney();
-				cm.returnMoney(ob1.change(al));
-			}
-			
-			if(a==2)
-			{	
-				ob2.alcoholRun();
-				// ÀÜµ· ¹ÝÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
-				ChangeMoney cm = new ChangeMoney();
-				cm.returnMoney(ob2.change(al));
-			}
-			
-			if(a==3)
-			{
-				ob3.alcoholRun();
-				// ÀÜµ· ¹ÝÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
-				ChangeMoney cm = new ChangeMoney();
-				cm.returnMoney(ob3.change(price));
-
-			}
-			
+		if(a==1)
+		{
+			ob1.list();
+			int al = ob1.alcoholChoose();
+			ob1.alcoholReturn(al);
+			ob1.stock(al);
+			System.out.println("ÀÜµ· : " + ob1.change(al));
+			// ÀÜµ· ¹ÝÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
+			ChangeMoney cm = new ChangeMoney();
+			cm.returnMoney(ob1.change(al), pmd);
 		}
-
-
-
+		
+		if(a==2)
+		{	
+			ob2.list();
+			int al = ob2.alcoholChoose();
+			ob2.alcoholReturn(al);
+			ob2.stock(al);
+			System.out.println("ÀÜµ· : " + ob2.change(al));
+			// ÀÜµ· ¹ÝÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
+			ChangeMoney cm = new ChangeMoney();
+			cm.returnMoney(ob2.change(al), pmd);
+		}
+		
+		if(a==3)
+		{
+			ob3.list();
+			int price = ob3.alcoholChoose();
+			System.out.println("ÀÜµ· : " + ob3.change(price));
+			// ÀÜµ· ¹ÝÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
+			ChangeMoney cm = new ChangeMoney();
+			cm.returnMoney(ob3.change(price), pmd);
+		}
+		
 		//´çÃ·±Ý ¹ÝÈ¯
 		
 		
@@ -72,16 +77,10 @@ public class MainTest
 		
 	}
 	
-
 	private static void print()
 	{
 		System.out.println("=====================================");
 		System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
 		System.out.println("=====================================");
-
-		Scanner sc = new Scanner(System.in);
-		System.out.print("3°¡Áö À¯Çü Áß ÇÏ³ª¸¦ ¼±ÅÃÇÏ¼¼¿ä (¨ç ´ÜÇ° / ¨è ÇÁ¸®¼Â(Ä¬Å×ÀÏ) / ¨é Ä¿½ºÅÒ(Ä¬Å×ÀÏ) : ");
-		int a = sc.nextInt();
-
 	}
 }
