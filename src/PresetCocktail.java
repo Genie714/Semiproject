@@ -1,4 +1,4 @@
-// AlcoholVendingMachine í´ë˜ìŠ¤ ìƒì†ë°›ëŠ” í´ë˜ìŠ¤ ì„¤ê³„
+// AlcoholVendingMachine Å¬·¡½º »ó¼Ó¹Ş´Â Å¬·¡½º ¼³°è
 
 import java.io.*;
 import java.util.*;
@@ -39,16 +39,16 @@ class PresetCocktail extends AlcoholVendingMachine
 		
 		switch (al)
 		{
-		case 1: result = "ìŠ¤íë¥´ ë“œë¼ì´ë²„"; break;
-		case 2: result = "ë„¤ê·¸ë¡œë‹ˆ"; break;
-		case 3: result = "ê¹€ë ›"; break;
-		case 4: result = "ì¹´íƒ€ë¥´ì‹œìŠ¤"; break;
-		case 5: result = "ì§„ í”¼ì¦ˆ"; break;
-		case 6: result = "ì˜ˆê±° ë°¤"; break;
-		case 7: result = "ë“œë¼ì´ ë§ˆí‹°ë‹ˆ"; break;
-		case 8: result = "ì§„í† ë‹‰"; break;
-		case 9: result = "ëª¨íˆë˜"; break;
-		case 10: result = "ë¸”ë£¨í•˜ì™€ì´"; break;
+		case 1: result = "½ºÅ¥¸£ µå¶óÀÌ¹ö"; break;
+		case 2: result = "³×±×·Î´Ï"; break;
+		case 3: result = "±è·¿"; break;
+		case 4: result = "Ä«Å¸¸£½Ã½º"; break;
+		case 5: result = "Áø ÇÇÁî"; break;
+		case 6: result = "¿¹°Å ¹ã"; break;
+		case 7: result = "µå¶óÀÌ ¸¶Æ¼´Ï"; break;
+		case 8: result = "ÁøÅä´Ğ"; break;
+		case 9: result = "¸ğÈ÷¶Ç"; break;
+		case 10: result = "ºí·çÇÏ¿ÍÀÌ"; break;
 		
 		}
 		
@@ -64,16 +64,16 @@ class PresetCocktail extends AlcoholVendingMachine
 	protected void list()
 	{	
 
-		System.out.printf("1 %s (%5dï¿¦)   ","ìŠ¤íë¥´ ë“œë¼ì´ë²„",12500);
-		System.out.printf("2 %s (%5dï¿¦)   ","ë„¤ê·¸ë¡œë‹ˆ",23500);
-		System.out.printf("3 %s    (%5dï¿¦) \n","ê¹€ë ›",21500);
-		System.out.printf("4 %s      (%5dï¿¦)   ","ì¹´íƒ€ë¥´ì‹œìŠ¤",18500);
-		System.out.printf("5 %s  (%5dï¿¦)   ","ì§„ í”¼ì¦ˆ",16500);
-		System.out.printf("6 %s (%5dï¿¦) \n","ì˜ˆê±° ë°¤",11500);
-		System.out.printf("7 %s   (%5dï¿¦)   ","ë“œë¼ì´ ë§ˆí‹°ë‹ˆ",18500);
-		System.out.printf("8 %s   (%5dï¿¦)   ","ì§„í† ë‹‰",11500);
-		System.out.printf("9 %s  (%5dï¿¦) \n","ëª¨íˆë˜",9500);
-		System.out.printf("10 %s     (%5dï¿¦)\n","ë¸”ë£¨í•˜ì™€ì´",14500);
+		System.out.printf("1 %s (%5d£Ü)   ","½ºÅ¥¸£ µå¶óÀÌ¹ö",12500);
+		System.out.printf("2 %s (%5d£Ü)   ","³×±×·Î´Ï",23500);
+		System.out.printf("3 %s    (%5d£Ü) \n","±è·¿",21500);
+		System.out.printf("4 %s      (%5d£Ü)   ","Ä«Å¸¸£½Ã½º",18500);
+		System.out.printf("5 %s  (%5d£Ü)   ","Áø ÇÇÁî",16500);
+		System.out.printf("6 %s (%5d£Ü) \n","¿¹°Å ¹ã",11500);
+		System.out.printf("7 %s   (%5d£Ü)   ","µå¶óÀÌ ¸¶Æ¼´Ï",18500);
+		System.out.printf("8 %s   (%5d£Ü)   ","ÁøÅä´Ğ",11500);
+		System.out.printf("9 %s  (%5d£Ü) \n","¸ğÈ÷¶Ç",9500);
+		System.out.printf("10 %s     (%5d£Ü)\n","ºí·çÇÏ¿ÍÀÌ",14500);
      
 
 		System.out.println();
@@ -100,11 +100,12 @@ class PresetCocktail extends AlcoholVendingMachine
 		case 10: price = 14500; break;
 		}
 		
+         
 		int changeMoney = getMoney() - price;
 
 		while (changeMoney < 0)
 		{
-			System.out.println("ì…ë ¥í•œ ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+			System.out.println("ÀÔ·ÂÇÑ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 			System.out.println();
 
 			changeMoney = getMoney() - price;
@@ -113,7 +114,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		return changeMoney;
 	}
 	
-	protected void stock(int al)						// ëª¨ë“  ì¢…ë¥˜ì˜ ìˆ  ì¬ê³  ì •ë¦¬í•´ì£¼ëŠ” ë©”ì†Œë“œ
+	protected void stock(int al)						// ¸ğµç Á¾·ùÀÇ ¼ú Àç°í Á¤¸®ÇØÁÖ´Â ¸Ş¼Òµå
 	{
 	    switch(al) 
 	    {
@@ -180,7 +181,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (vodka < 100 || orangejuice < 200)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
 
@@ -188,7 +189,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 100 || vermouth < 100 || campari < 100)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
 		
@@ -196,7 +197,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 225 || limejuice < 75)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
 		
@@ -204,7 +205,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (whiterum < 180 || limejuice < 60 || amaretto < 60)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
 		
@@ -212,7 +213,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 130 || sparklingwater < 85 || lemonjuice < 85)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
       
@@ -220,7 +221,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (jgermeister < 75 || redbull < 225)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
       
@@ -228,7 +229,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 75 || vermouth < 225 || olive < 1)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
       
@@ -236,7 +237,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 75 || sparklingwater < 225)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
       
@@ -244,7 +245,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (mojito < 75 || sparklingwater < 225)
 			{
-				System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+				System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
       
@@ -252,7 +253,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (whiterum < 100 || bluecuracao < 50 || lemonjuice < 50 || pinejuice < 100)
 			{
-            System.out.println("ê´€ë¦¬ì í˜¸ì¶œ ë°”ëŒ(ì¬ê³  ë¶€ì¡±)");
+            System.out.println("°ü¸®ÀÚ È£Ãâ ¹Ù¶÷(Àç°í ºÎÁ·)");
 			}
 		}
 		System.out.println();
@@ -260,17 +261,19 @@ class PresetCocktail extends AlcoholVendingMachine
 	}
 
 	
-	protected void alcoholRun()
+	protected int alcoholRun()
 	{
 		list();
 		int al = alcoholChoose();
 		alcoholReturn(al);
 		stock(al);
-		System.out.println("ì”ëˆ : " + change(al));
+		
 		
 		System.out.println();
-				
-		System.out.print("ìˆ ì„ ì¶”ê°€ë¡œ ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ?(Y/N) : ");
+		
+		/*
+		Scanner sc = new Scanner(System.in);		
+		System.out.print("¼úÀ» Ãß°¡·Î ¼±ÅÃÇÏ½Ã°Ú½À´Ï±î?(Y/N) : ");
 		String add = sc.next();
 		char check = add.charAt(0);
 
@@ -278,6 +281,8 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			break;
 		}
+		*/
+		return al;
 	
 	}
 

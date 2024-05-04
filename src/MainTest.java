@@ -1,10 +1,10 @@
-/*ìˆœì„œ
- * ê°ì²´ë¶ˆëŸ¬ì˜¤ê¸° or ê°ì²´ ìƒì„±í•˜ê¸°
- * ìíŒê¸° ì•ˆë‚´ ë° ì­íŒŸì˜ˆì •ê¸ˆ ë””ìŠ¤í”Œë ˆì´
- * Alcohol í´ë˜ìŠ¤ ì§„í–‰
- * ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
- * ë‹¹ì²¨ê¸ˆ ë°˜í™˜
- * ê°ì²´ ë‚´ë³´ë‚´ê¸° */
+/*¼ø¼­
+ * °´Ã¼ºÒ·¯¿À±â or °´Ã¼ »ı¼ºÇÏ±â
+ * ÀÚÆÇ±â ¾È³» ¹× ÀèÆÌ¿¹Á¤±İ µğ½ºÇÃ·¹ÀÌ
+ * Alcohol Å¬·¡½º ÁøÇà
+ * ·ê·¿ Å¬·¡½º ÁøÇà
+ * ´çÃ·±İ ¹İÈ¯
+ * °´Ã¼ ³»º¸³»±â */
 
 import java.util.Scanner;
 
@@ -12,53 +12,55 @@ public class MainTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		// ê°ì²´ ë¶ˆëŸ¬ì˜¤ê¸° â†’ ë¯¸êµ¬í˜„ ì„ì‹œ í´ë˜ìŠ¤ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
-//		LoadObject lo = new LoadObject();
-//		lo.loadObject();
+		// °´Ã¼ ºÒ·¯¿À±â ¡æ ¹Ì±¸Çö ÀÓ½Ã Å¬·¡½º ÀÎ½ºÅÏ½º »ı¼º
+        //LoadObject lo = new LoadObject();
+        //lo.loadObject();
 		
 		
-		//ìíŒê¸° ì•ˆë‚´ ë° ì­íŒŸ ì˜ˆì •ê¸ˆ ë””ìŠ¤í”Œë ˆì´
+		//ÀÚÆÇ±â ¾È³» ¹× ÀèÆÌ ¿¹Á¤±İ µğ½ºÇÃ·¹ÀÌ
 		PrizeMoneyDisplay pmd = new PrizeMoneyDisplay();
-		print();
+		int a = print();
 		pmd.showTotalPrize();
 		
 
 		
-		//Alcohol í´ë˜ìŠ¤ ì§„í–‰(Alcohol ë³µì‚¬ ë¶™ì—¬ë„£ê¸°)
+		//Alcohol Å¬·¡½º ÁøÇà(Alcohol º¹»ç ºÙ¿©³Ö±â)
 		SingleItem ob1 = new SingleItem();
 		PresetCocktail ob2 = new PresetCocktail();
 		CustomCocktail ob3 = new CustomCocktail();
+
 		
 		if(a==1)
 		{
-			ob1.alcoholRun();
-			// ì”ëˆ ë°˜í™˜ //ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
+			int al = ob1.alcoholRun();
+			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob1.change(al));
+			cm.returnMoney(ob1.change(al),pmd);
 		}
 		
 		if(a==2)
 		{	
-			ob2.alcoholRun();
-			// ì”ëˆ ë°˜í™˜ //ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
+			
+			int al = ob2.alcoholRun();
+			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob2.change(al));
+			cm.returnMoney(ob2.change(al),pmd);
 		}
 		
 		if(a==3)
 		{
-			ob3.alcoholRun();
-			// ì”ëˆ ë°˜í™˜ //ë£°ë › í´ë˜ìŠ¤ ì§„í–‰
+			int al = ob3.alcoholRun();
+			// ÀÜµ· ¹İÈ¯ //·ê·¿ Å¬·¡½º ÁøÇà
 			ChangeMoney cm = new ChangeMoney();
-			cm.returnMoney(ob3.change(price));
+			cm.returnMoney(ob3.change(al),pmd);
 
 		}
 		
-		//ë‹¹ì²¨ê¸ˆ ë°˜í™˜
+		//´çÃ·±İ ¹İÈ¯
 		
 		
 		
-		//ê°ì²´ ë‚´ë³´ë‚´ê¸° â†’ ë¯¸êµ¬í˜„
+		//°´Ã¼ ³»º¸³»±â ¡æ ¹Ì±¸Çö
 		//SaveObject so = new SaveObject();
 		
 		//so.saveObject(ad,buy,alc);
@@ -66,15 +68,19 @@ public class MainTest
 	}
 	
 
-	private static void print()
+	private static int print()
 	{
 		System.out.println("=====================================");
-		System.out.println(" â– â– â–  500ë£°ë › ì¹µí…Œì¼ ìíŒê¸° â– â– â– ");
+		System.out.println(" ¡á¡á¡á 500·ê·¿ Ä¬Å×ÀÏ ÀÚÆÇ±â ¡á¡á¡á");
 		System.out.println("=====================================");
 
 		Scanner sc = new Scanner(System.in);
-		System.out.print("3ê°€ì§€ ìœ í˜• ì¤‘ í•˜ë‚˜ë¥¼ ì„ íƒí•˜ì„¸ìš” (â‘  ë‹¨í’ˆ / â‘¡ í”„ë¦¬ì…‹(ì¹µí…Œì¼) / â‘¢ ì»¤ìŠ¤í…€(ì¹µí…Œì¼) : ");
+		System.out.print("3°¡Áö À¯Çü Áß ÇÏ³ª¸¦ ¼±ÅÃÇÏ¼¼¿ä (¨ç ´ÜÇ° / ¨è ÇÁ¸®¼Â(Ä¬Å×ÀÏ) / ¨é Ä¿½ºÅÒ(Ä¬Å×ÀÏ) : ");
 		int a = sc.nextInt();
+
+		return a;
+
+		
 
 	}
 }
