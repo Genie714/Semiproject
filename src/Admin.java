@@ -49,5 +49,5 @@ public class Admin implements Serializable
 		return adminMoney;
 	}
 
-	//주류 넣어야 하나?ddd
+	//주류 넣어야 하나?
 }
