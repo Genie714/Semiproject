@@ -8,7 +8,7 @@ public class ChangeMoney extends ReturnMoney
 	int totalVal;
 	
 	//@Override
-	public void returnMoney(int charge, PrizeMoneyDisplay pmd)	// 거스름돈 넘겨받음
+	public void returnMoney(int charge, PrizeMoneyDisplay pmd) throws Exception // 거스름돈 넘겨받음
 	{
 		//System.out.printf("현재 거스름돈 통에 들어있는 돈은 %d원 입니다.\n",totalVal);
 		// charge == 거스름돈
@@ -29,14 +29,14 @@ public class ChangeMoney extends ReturnMoney
 		if (charge-finalcharge < 500)
 		{
 			finalcharge = charge;
-			System.out.printf("%d원이 반환되었습니다.\n", finalcharge);
+			System.out.printf("\n%d원이 반환되었습니다.\n", finalcharge);
 			by.buyerAddMoney(finalcharge);
 			return;
 		}
 		else if (charge-finalcharge == 500)
 		{		
 			Scanner sc = new Scanner(System.in);
-			System.out.printf("500원을 제외한 %d원이 반환되었습니다.\n", finalcharge);
+			System.out.printf("\n500원을 제외한 %d원이 반환되었습니다.\n", finalcharge);
 			System.out.print("500원으로 룰렛에 참가하시겠습니까?(1->참가 2->500원반환) : ");
 			check = sc.nextInt();
 		}
@@ -45,7 +45,7 @@ public class ChangeMoney extends ReturnMoney
 			finalcharge = charge-500;
 
 			Scanner sc = new Scanner(System.in);
-			System.out.printf("500원을 제외한 %d원이 반환되었습니다.\n", finalcharge);
+			System.out.printf("\n500원을 제외한 %d원이 반환되었습니다.\n", finalcharge);
 			System.out.print("500원으로 룰렛에 참가하시겠습니까?(1->참가 2->500원반환) : ");
 			check = sc.nextInt();
 		}
