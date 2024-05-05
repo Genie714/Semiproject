@@ -3,9 +3,8 @@ import java.util.*;
 
 abstract class AlcoholVendingMachine											// 상위클래스
 {
-	
+
 	private AlcoholVendingMachine avmArr[] = new AlcoholVendingMachine[3];		// 상위 클래스 객체배열 생성
-	
 	
 	
 	protected abstract void list();												// 술 리스트
@@ -53,6 +52,7 @@ abstract class AlcoholVendingMachine											// 상위클래스
 
 	protected abstract int change(int al);										// 고른 술의 최종값을 입력받은 값에서 빼주는 메소드
 
+	
 	
 
 
@@ -120,8 +120,8 @@ abstract class AlcoholVendingMachine											// 상위클래스
 			
       		 
      	}// close while
-      		
-				
+		System.out.println();
+		
 		enterMoney();
 		cm.returnMoney(avmArr[a-1].change(priceAll),pmd);		// 최종가격 priceAll을 change메소드에 담아 잔돈 계산
 					

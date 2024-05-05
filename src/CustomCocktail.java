@@ -27,6 +27,7 @@ class CustomCocktail extends AlcoholVendingMachine
 	int al;
 	int b;
 	int c;
+	
    
    
 	@Override
@@ -52,6 +53,7 @@ class CustomCocktail extends AlcoholVendingMachine
 		
 		while(shotTot != 10)
 		{   
+			System.out.println();
 			
 			System.out.print("술을 선택하시오 : ");
 			al = sc.nextInt();
@@ -86,7 +88,9 @@ class CustomCocktail extends AlcoholVendingMachine
 				case 14: price = 750*shot; break;
 				case 15: price = 750*shot; break;
 				}
-			
+				
+				
+	
 				priceAdd += price;
 
 				
@@ -118,20 +122,18 @@ class CustomCocktail extends AlcoholVendingMachine
 					System.out.println("관리자 호출 바람(재고 부족)");
 					return -1;
 				}
-				System.out.println();
 				
 				alcoholReturn(al);
 				System.out.printf("샷 수 : %d\n", shot);
 				
-					 
+			
 			} // close if
    
          
 			if (shotTot>10)
 			{
 				System.out.println("shot이 총 10잔을 초과하였습니다. 다시 입력하세요.");
-				System.out.println();
-
+				
 				shotTot -= shot;
          
 			}
@@ -233,9 +235,7 @@ class CustomCocktail extends AlcoholVendingMachine
 		System.out.printf("13 %s   (%d￦) ","레몬주스",750);
 		System.out.printf(" 14 %s   (%d￦) ","탄산수",750);
 		System.out.printf("  15 %s       (%d￦)\n ","레드불",2250);
-      
-		System.out.println();
-
+		
 	}
 
 
@@ -260,7 +260,7 @@ class CustomCocktail extends AlcoholVendingMachine
 
 	@Override
 	protected int alcoholRun()
-	{
+	{	
 		list();
 		int priceAdd3 = alcoholChoose();
 		if (priceAdd3 == -1)
@@ -272,14 +272,7 @@ class CustomCocktail extends AlcoholVendingMachine
 		
 	}
 	
-	
-	
-	
-	
 	// 커스텀칵테일 유형 안에서 각각의 주류,비주류를 랜덤으로 뽑아 조합되는 랜덤 커스텀칵테일...... 고민중................
-   
-
-   
-   
-   
+	
+ 
 }
