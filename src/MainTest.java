@@ -22,7 +22,7 @@ public class MainTest
       
 	  
 		//자판기 안내 및 잭팟 예정금 디스플레이
-		PrizeMoneyDisplay pmd = new PrizeMoneyDisplay();
+		PrizeMoneyDisplay pmd = PrizeMoneyDisplay.getInstance();
 		print();
 		pmd.showTotalPrize();
       

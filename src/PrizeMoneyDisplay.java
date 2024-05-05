@@ -6,7 +6,10 @@ class PrizeMoneyDisplay // 이건 계속 보여줘야하는 거임.
     public static int totalPrizeMoney = 100000;    // 시작은 INIT_PRIZE로
 	public static int countPlay = 0;
 	*/
-
+	
+	// 생성자 싱글톤 패턴 적용 - 문대진
+	private static PrizeMoneyDisplay instance;
+	
 	final int INIT_PRIZE = 100000;  // 초기화때 쓰는 100,000 원
     final int STACK = 400;          // 수수료 10원을 제외한 유저 눈에 보이는 490 원
     public int totalPrizeMoney = 100000;    // 시작은 INIT_PRIZE로
@@ -20,7 +23,17 @@ class PrizeMoneyDisplay // 이건 계속 보여줘야하는 거임.
 	public int seven3 = 0;
 	public int fail = 0;
 	
-
+	//싱글톤 패턴 객체생성 메소드 - 문대진
+	public static PrizeMoneyDisplay getInstance()
+	{
+		if(instance == null)
+		{
+			instance = new PrizeMoneyDisplay();
+		}
+		return instance;
+	}
+	
+	
 	//public static void showTotalPrize()	// pmd.showTotalPrize();
 	public void showTotalPrize()	// pmd.showTotalPrize();
     {
