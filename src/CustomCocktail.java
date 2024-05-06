@@ -5,7 +5,6 @@ import java.util.*;
 
 class CustomCocktail extends AlcoholVendingMachine
 {
-   
 	private int vodka=10000;
 	private int gin=10000;
 	private int vermouth=10000;
@@ -23,11 +22,10 @@ class CustomCocktail extends AlcoholVendingMachine
 	private int redbull=10000;
 	int count=0;
 	int price=0;
-	int priceAdd=0;
 	int al;
 	int b;
 	int c;
-	
+   
    
    
 	@Override
@@ -42,33 +40,37 @@ class CustomCocktail extends AlcoholVendingMachine
 		return c;	
 	}
    
+   
 	@Override
 	protected int alcoholChoose()						// CustomCocktail 클래스만 술 선택하는 메소드 하위 클래스에 따로 정의
 	{	
 		Scanner sc = new Scanner(System.in);
 		
 		int result = 0;
-		int shot;
 		int shotTot = 0;
+		int shot;
+		
+		
+		System.out.println("※종류 제한Ｘ, 총 10 Shot을 넣어야 술이 제조됩니다.※");
 		
 		while(shotTot != 10)
 		{   
 			System.out.println();
 			
-			System.out.print("술을 선택하시오 : ");
+			System.out.print("술 선택 : ");
 			al = sc.nextInt();
          
-			System.out.print("추가할 Shot : ");
+			System.out.print("Shot 수(0 → 술 다시 선택) : ");
 			shot = sc.nextInt();
          
 			shotTot += shot;
 
 			if (shot < 1)
 			{
-				System.out.println("총 10 Shot을 넣어야 술이 제조됩니다. 계속 입력하세요.");
+				// 고를 술 다시 물어봄
 			}
          
-			if (shotTot<=10)
+			if (shot>=1 && shot<=10 && shotTot<=10)
 			{
 				switch (al)
 				{
@@ -88,13 +90,7 @@ class CustomCocktail extends AlcoholVendingMachine
 				case 14: price = 750*shot; break;
 				case 15: price = 750*shot; break;
 				}
-				
-				
-	
-				priceAdd += price;
-
-				
-				
+			
 				switch (al)
 				{
 				case 1: result = vodka-=30*shot; break;
@@ -116,24 +112,25 @@ class CustomCocktail extends AlcoholVendingMachine
 				
 				//테스트(확인)
 				//System.out.printf("술 잔량 : %d", result);
+				
+				System.out.print("종류 : ");
+				alcoholReturn(al);
+				System.out.printf("추가된 총 Shot : %d\n", shotTot);
 
 				if (result==100)
 				{
-					System.out.println("관리자 호출 바람(재고 부족)");
+					System.out.println("매진");
 					return -1;
 				}
 				
-				alcoholReturn(al);
-				System.out.printf("샷 수 : %d\n", shot);
-				
-			
+					 
 			} // close if
    
          
 			if (shotTot>10)
 			{
-				System.out.println("shot이 총 10잔을 초과하였습니다. 다시 입력하세요.");
-				
+				System.out.println("총 10 Shot을 초과하였습니다. 다시 입력하세요.");
+
 				shotTot -= shot;
          
 			}
@@ -142,7 +139,7 @@ class CustomCocktail extends AlcoholVendingMachine
 		} // close while
       
       
-		return priceAdd;
+		return price;
 
   
 	}
@@ -220,6 +217,7 @@ class CustomCocktail extends AlcoholVendingMachine
 		System.out.println();
 		System.out.println("1shot (30ml)");
 		System.out.println();
+		
 		System.out.printf("1 %s      (%d￦) ","보드카",2250);
 		System.out.printf("2 %s        (%d￦)","진",2550);
 		System.out.printf("  3 %s      (%d￦) \n","베르무트",1650);
@@ -236,13 +234,15 @@ class CustomCocktail extends AlcoholVendingMachine
 		System.out.printf(" 14 %s   (%d￦) ","탄산수",750);
 		System.out.printf("  15 %s       (%d￦)\n ","레드불",2250);
 		
+		System.out.println();
+      
 	}
 
 
 	@Override
-	protected int change(int priceAdd)
+	protected int change(int price)
 	{
-		int changeMoney = getMoney() - priceAdd;
+		int changeMoney = getMoney() - price;
 
 		while (changeMoney < 0)
 		{
@@ -250,7 +250,7 @@ class CustomCocktail extends AlcoholVendingMachine
 			System.out.println();
 
 			enterMoney();
-			changeMoney = getMoney() - priceAdd;
+			changeMoney = getMoney() - price;
 		}
 
 		return changeMoney;
@@ -260,19 +260,26 @@ class CustomCocktail extends AlcoholVendingMachine
 
 	@Override
 	protected int alcoholRun()
-	{	
+	{
 		list();
-		int priceAdd3 = alcoholChoose();
-		if (priceAdd3 == -1)
+		int price = alcoholChoose();
+		if (price == -1)
 		{
 			System.exit(-1);
 		}
 		
-		return priceAdd3;
+		return price;
 		
 	}
 	
-	// 커스텀칵테일 유형 안에서 각각의 주류,비주류를 랜덤으로 뽑아 조합되는 랜덤 커스텀칵테일...... 고민중................
 	
- 
+	
+	
+	
+	// 커스텀칵테일 유형 안에서 각각의 주류,비주류를 랜덤으로 뽑아 조합되는 랜덤 커스텀칵테일...... 고민중................
+   
+
+   
+   
+   
 }

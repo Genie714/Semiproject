@@ -6,7 +6,6 @@ import java.util.*;
 class PresetCocktail extends AlcoholVendingMachine
 {
 	private int vodka=10000;
-
 	private int gin=10000;
 	private int vermouth=10000;
     private int campari=10000;
@@ -24,13 +23,14 @@ class PresetCocktail extends AlcoholVendingMachine
 	private int olive=10000;
 	int count=0;
 	int price = 0;
-	int priceAdd=0;
 	int al;
+	
 	
 	
 	@Override
 	protected int alcoholPrice(int al)						
 	{
+		
 		switch (al)
 		{
 		case 1: price = 12500;
@@ -65,10 +65,7 @@ class PresetCocktail extends AlcoholVendingMachine
 				break;
 		}
 
-		priceAdd += price;
-
-
-		return priceAdd;
+		return price;
 	
 	}
 	
@@ -126,9 +123,9 @@ class PresetCocktail extends AlcoholVendingMachine
 	
 	
 	@Override
-	protected int change(int priceAdd)
+	protected int change(int price)
 	{
-		int changeMoney = getMoney() - priceAdd;
+		int changeMoney = getMoney() - price;
 
 		while (changeMoney < 0)
 		{
@@ -136,7 +133,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			System.out.println();
 
 			enterMoney();
-			changeMoney = getMoney() - priceAdd;
+			changeMoney = getMoney() - price;
 		}
 
 		return changeMoney;
@@ -213,7 +210,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (vodka < 100 || orangejuice < 200)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 				
 				return -1;
 			}
@@ -223,7 +220,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 100 || vermouth < 100 || campari < 100)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -233,7 +230,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 225 || limejuice < 75)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -243,7 +240,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (whiterum < 180 || limejuice < 60 || amaretto < 60)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -253,7 +250,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 130 || sparklingwater < 85 || lemonjuice < 85)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -263,7 +260,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (jgermeister < 75 || redbull < 225)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -273,7 +270,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 75 || vermouth < 225 || olive < 1)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -283,7 +280,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 75 || sparklingwater < 225)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -293,7 +290,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (mojito < 75 || sparklingwater < 225)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}
@@ -303,7 +300,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (whiterum < 100 || bluecuracao < 50 || lemonjuice < 50 || pinejuice < 100)
 			{
-				System.out.println("관리자 호출 바람(재고 부족)");
+				System.out.println("매진");
 			
 				return -1;
 			}

@@ -5,7 +5,6 @@ import java.util.*;
 
 class SingleItem extends AlcoholVendingMachine
 {
-
 	private int soju=10000;
 	private int beer=10000;
 	private int somac=10000;
@@ -17,8 +16,8 @@ class SingleItem extends AlcoholVendingMachine
 	private int monkey=10000;
 	private int count=0;
 	private int price=0;
-	private int priceAdd=0;
 	private int al;
+	
 	
 	
 	@Override
@@ -36,11 +35,8 @@ class SingleItem extends AlcoholVendingMachine
 		case 8: price = 12500; break;
 		case 9: price = 13500; break;
 		}
-		
-		priceAdd += price;
-		
 			
-		return priceAdd;
+		return price;
 		  	
 	}
 
@@ -114,9 +110,9 @@ class SingleItem extends AlcoholVendingMachine
 
 
 	@Override
-	protected int change(int priceAdd)                         
+	protected int change(int price)                         
 	{
-		int changeMoney = getMoney() - priceAdd;
+		int changeMoney = getMoney() - price;
 
 		while (changeMoney < 0)
 		{
@@ -124,7 +120,7 @@ class SingleItem extends AlcoholVendingMachine
 			System.out.println();
 
 			enterMoney();
-			changeMoney = getMoney() - priceAdd;
+			changeMoney = getMoney() - price;
 		}
 
 		return changeMoney;
@@ -153,9 +149,10 @@ class SingleItem extends AlcoholVendingMachine
 		//테스트(확인)
 		//System.out.printf("술 잔량 : %d", result);
 		
+		
 		if (result==100)
 		{
-			System.out.println("관리자 호출 바람(재고 부족)");
+			System.out.println("매진");
 			
 			return -1;
 		}
