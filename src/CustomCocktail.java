@@ -25,6 +25,17 @@ class CustomCocktail extends AlcoholVendingMachine
 	int al;
 	int b;
 	int c;
+
+	private static CustomCocktail instance;
+
+	public static CustomCocktail getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new CustomCocktail();
+		}
+		return instance;
+	}
    
    
    
@@ -74,21 +85,21 @@ class CustomCocktail extends AlcoholVendingMachine
 			{
 				switch (al)
 				{
-				case 1: price = 2250*shot;break;
-				case 2: price = 2550*shot; break;
-				case 3: price = 1650*shot; break;
-				case 4: price = 2850*shot; break;
-				case 5: price = 1650*shot; break;
-				case 6: price = 2250*shot; break;
-				case 7: price = 1650*shot; break;
-				case 8: price = 2250*shot; break;
-				case 9: price = 2250*shot; break;
-				case 10: price = 750*shot; break;
-				case 11: price = 1050*shot; break;
-				case 12: price = 750*shot; break;
-				case 13: price = 1050*shot; break;
-				case 14: price = 750*shot; break;
-				case 15: price = 750*shot; break;
+				case 1: price = 2000*shot;break;
+				case 2: price = 2500*shot; break;
+				case 3: price = 1500*shot; break;
+				case 4: price = 3000*shot; break;
+				case 5: price = 1500*shot; break;
+				case 6: price = 2000*shot; break;
+				case 7: price = 1500*shot; break;
+				case 8: price = 2000*shot; break;
+				case 9: price = 2000*shot; break;
+				case 10: price = 1000*shot; break;
+				case 11: price = 1000*shot; break;
+				case 12: price = 1000*shot; break;
+				case 13: price = 1000*shot; break;
+				case 14: price = 1000*shot; break;
+				case 15: price = 1000*shot; break;
 				}
 			
 				switch (al)
@@ -254,6 +265,28 @@ class CustomCocktail extends AlcoholVendingMachine
 		}
 
 		return changeMoney;
+
+	}
+
+	@Override
+	protected void enterStock(int al)
+	{
+		vodka=10000;
+	    gin=10000;
+	    vermouth=10000;
+        campari=10000;
+	    amaretto=10000;
+	    jgermeister=10000;
+	    mojito=10000;
+	    whiterum=10000;
+	    bluecuracao=10000;
+	    orangejuice=10000;
+	    limejuice=10000;
+	    pinejuice=10000;
+	    lemonjuice=10000;
+	    sparklingwater=10000;
+	    redbull=10000;
+	    
 
 	}
 
