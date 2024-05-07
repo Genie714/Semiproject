@@ -6,7 +6,17 @@ public class ChangeMoney extends ReturnMoney
 	protected int won500Ea = 2000;
 	int finalcharge;
 	int totalVal;
-	
+	private static ChangeMoney instance;
+		
+	public static ChangeMoney getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new ChangeMoney();
+		}
+		return instance;
+	}
+
 	//@Override
 	public void returnMoney(int charge, PrizeMoneyDisplay pmd) throws Exception // 거스름돈 넘겨받음
 	{
