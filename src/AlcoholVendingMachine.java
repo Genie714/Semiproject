@@ -5,27 +5,26 @@ abstract class AlcoholVendingMachine											// 상위 클래스
 {
 	
 	
-	private AlcoholVendingMachine avmArr[] = new AlcoholVendingMachine[3];		// 상위 클래스 객체배열 생성
-	
+	private AlcoholVendingMachine avmArr[] = new AlcoholVendingMachine[3];     // 상위 클래스 객체배열 생성
 	
 	
 	protected abstract void list();												// 술 리스트
 	
 	
-	protected int alcoholChoose()												// 술을 선택하는 메소드
-	{
-		int al;
-		Scanner sc = new Scanner(System.in);
-		System.out.print("술을 선택하시오 : ");
-		al = sc.nextInt();
-		return al;
-	}
+	protected abstract int alcoholChoose();										// 술을 선택하는 메소드
+
 	
 	
 	protected abstract void alcoholReturn(int al);								// 술을 반환하는 메소드
 	
 	
 	protected abstract int stock(int al);										// 모든 종류의 술 재고 정리해주는 메소드
+
+	
+	protected abstract void enterStock(int al);									// 모든 재고의 양을 초기값으로 초기화해주는 메소드
+	
+		
+	
 	
 	
 	protected abstract int alcoholPrice(int al);								// 술 가격 책정하는 메소드
@@ -66,13 +65,16 @@ abstract class AlcoholVendingMachine											// 상위 클래스
 
 		int add;
 		int a;
-		int al;
+		int al=0;
 		int price=0;
 		int priceCancle=0;
 		int priceAdd1=0;
 		int priceAdd2=0;
 		int priceAdd3=0;
 		int priceAll=0;
+		int stock=0;
+		int result=0;
+		
 
 		
 		PrizeMoneyDisplay pmd = new PrizeMoneyDisplay();
@@ -100,14 +102,16 @@ abstract class AlcoholVendingMachine											// 상위 클래스
 			if (a == 1)
 			{
 				al = avmArr[a-1].alcoholRun();
-                price = avmArr[a-1].alcoholPrice(al);						// SingleItem 클래스에서 받은 술 가격 → price에 대입
+			    price = avmArr[a-1].alcoholPrice(al);						// SingleItem 클래스에서 받은 술 가격 → price에 대입
 				priceAdd1 += price;											// SingleItem 에서 들어오는 가격을 모두 priceAdd1 에 누적
+				
 		    }
 			else if (a == 2)
 			{
-				al = avmArr[a-1].alcoholRun();							
+				al = avmArr[a-1].alcoholRun();	
                 price = avmArr[a-1].alcoholPrice(al);						// PresetCocktail 클래스에서 받은 술 가격 → price에 대입
-				priceAdd2 += price;											// PresetCocktail 에서 들어오는 가격을 모두 priceAdd2 에 누적
+				priceAdd2 += price;                                         // PresetCocktail 에서 들어오는 가격을 모두 priceAdd2 에 누적
+				
 			}
 			else if (a == 3)					
 			{
@@ -116,31 +120,59 @@ abstract class AlcoholVendingMachine											// 상위 클래스
 				
 			}
 			priceAll = priceAdd1 + priceAdd2 + priceAdd3 + priceCancle;				// priceAll → 최종 계산할 금액
-			//System.out.println("결제할 총액" + priceAll);							// priceCancle → 직전에 담은 상품 가격을 priceAll 에서 빼준 금액
+			System.out.println("결제할 총액" + priceAll);							// priceCancle → 직전에 담은 상품 가격을 priceAll 에서 빼준 금액
+			
+			
 			
 			System.out.println();
 			System.out.print("[돈 계산(1) / 추가 구매(2) / 방금 선택한 상품 취소(3)] : ");
-			add = sc.nextInt();
+            add = sc.nextInt();
+			
 			
 			if (add==3)																// 방금 선택한 제품 취소(3)를 선택하였을 때 조건문
 			{
 				
 				
 				priceCancle = priceAll - price;										// (3)을 누르기 직전 선택한 상품만 최종 계산할 금액에서 빼준 금액
-				//System.out.println("최근구입 상품 뺀 총액" + pricePrev);
+				//System.out.println("최근구입 상품 뺀 총액" + priceCancle);
+				
 				
 				priceAdd1 = 0;
 				priceAdd2 = 0;														// 직전에 선택한 상품을 제외시킨 후 최종 가격 금액을 priceCancle에 담았기 때문에	
-				priceAdd3 = 0;														// 위에서 가격 누적 시켰던 priceAdd1,priceAdd2,priceAdd3 은 0으로 초기화 하고 다시 담아야 한다.
+				priceAdd3 = 0;                                                      // 위에서 가격 누적 시켰던 priceAdd1,priceAdd2,priceAdd3 은 0으로 초기화 하고 다시 담아야 한다.
+
 			}
 			
-			if (add==1)																
-			{																		// 돈 계산(1)을 선택하면 break 후 while문을 빠져나가 돈 입력 화면으로 넘어간다.
-				break;																
+			if (add==1)																// 돈 계산(1)을 선택하면 break 후 while문을 빠져나가 돈 입력 화면으로 넘어간다.
+			{	
+				/*
+				stock = avmArr[a-1].stock(al);
+			    if (stock < 100)
+		        {
+			        //enterStock(al);
+		        }
+				*/
+				
+				break;	
+				
 			}
 			
+			/*
+			if (add==2)
+			{
+				
+				stock = avmArr[a-1].stock(al);
+				if (stock < 100)
+		        {
+			        //enterStock(al);
+		        }
+				
+				
+			
+			}
+			*/
       		 
-     	} // close while															// 추가 구매(2)는 따로 조건문 생성하지 않고 while문을 계속 돌게 한다.
+     	} // close while															
       	
 		System.out.println();
 	

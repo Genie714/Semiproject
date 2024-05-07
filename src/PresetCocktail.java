@@ -24,7 +24,33 @@ class PresetCocktail extends AlcoholVendingMachine
 	int count=0;
 	int price = 0;
 	int al;
+	String resultName = "";
+
+	private static PresetCocktail instance;
+
+	public static PresetCocktail getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new PresetCocktail();
+		}
+		return instance;
+	}
 	
+
+	@Override
+	protected int alcoholChoose()
+	{
+		// 술을 선택하는 메소드
+	
+		int al;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("술을 선택하시오 : ");
+		al = sc.nextInt();
+		return al;
+	
+
+	}
 	
 	
 	@Override
@@ -76,9 +102,7 @@ class PresetCocktail extends AlcoholVendingMachine
 
 		Map<String,Integer> map = new HashMap<String,Integer>();
 
-
 		String result = "";
-		
 		switch (al)
 		{
 		case 1: result = "스큐르 드라이버"; break;
@@ -201,16 +225,22 @@ class PresetCocktail extends AlcoholVendingMachine
 				pinejuice -= 100;;
 				break;
 		}
+
 		
 		//테스트(확인)
-		//System.out.printf("술 잔량 : %d", whiterum);
+		System.out.printf("술 잔량 : %d", vodka);
+		System.out.printf("술 잔량 : %d", orangejuice);
+		System.out.printf("술 잔량 : %d", gin);
+		System.out.printf("술 잔량 : %d", vermouth);
+		System.out.printf("술 잔량 : %d\n", campari);
+	
       
 
 	  	if (al==1)
 		{
 			if (vodka < 100 || orangejuice < 200)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 				
 				return -1;
 			}
@@ -220,7 +250,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 100 || vermouth < 100 || campari < 100)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -230,7 +260,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 225 || limejuice < 75)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -240,7 +270,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (whiterum < 180 || limejuice < 60 || amaretto < 60)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -250,7 +280,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 130 || sparklingwater < 85 || lemonjuice < 85)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -260,7 +290,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (jgermeister < 75 || redbull < 225)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -270,7 +300,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 75 || vermouth < 225 || olive < 1)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -280,7 +310,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (gin < 75 || sparklingwater < 225)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -290,7 +320,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (mojito < 75 || sparklingwater < 225)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -300,7 +330,7 @@ class PresetCocktail extends AlcoholVendingMachine
 		{
 			if (whiterum < 100 || bluecuracao < 50 || lemonjuice < 50 || pinejuice < 100)
 			{
-				System.out.println("매진");
+				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
 				return -1;
 			}
@@ -310,17 +340,58 @@ class PresetCocktail extends AlcoholVendingMachine
   
 	}
 
+	@Override
+	protected void enterStock(int al)
+	{	
+		vodka=10000;
+	    gin=10000;
+	    vermouth=10000;
+        campari=10000;
+	    amaretto=10000;
+	    jgermeister=10000;
+	    mojito=10000;
+	    whiterum=10000;
+	    bluecuracao=10000;
+	    orangejuice=10000;
+	    limejuice=10000;
+	    pinejuice=10000;
+	    lemonjuice=10000;
+	    sparklingwater=10000;
+	    redbull=10000;
+	    olive=10000;
+
+		
+		switch (al)
+		{
+		case 1: resultName = "보드카"; break;
+		case 2: resultName = "진"; break;
+		case 3: resultName = "베르무트"; break;
+		case 4: resultName = "캄파리"; break;
+		case 5: resultName = "아마레토";break;
+		case 6: resultName = "예거 마이스터"; break;
+		case 7: resultName = "모히또";break;
+		case 8: resultName = "화이트 럼"; break;
+		case 9: resultName = "블루 큐라소"; break;
+		case 10: resultName = "오렌지쥬스"; break;
+		case 11: resultName = "라임주스"; break;
+		case 12: resultName = "파인애플주스"; break;
+		case 13: resultName = "레몬주스"; break;
+		case 14: resultName = "탄산수"; break;
+		case 15: resultName = "레드불"; break;
+		case 16: resultName = "올리브"; break;
+		}
+		
+
+		//System.out.printf("%s가 10L 채워졌습니다. " , resultName);  → 리스트에 (매진) 표시가 있으므로 따로 출력 구문의 필요성을 확실히 느끼지 못하겠어요.....
+    }
+
 
 	@Override
 	protected int alcoholRun()
 	{
 		list();
 		int al = alcoholChoose();
-		int ex = stock(al);
-		if (ex == -1)
-		{
-			System.exit(-1);
-		}
+
 		alcoholReturn(al);
 		
 		return al;
