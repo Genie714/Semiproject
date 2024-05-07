@@ -46,9 +46,9 @@ class CustomCocktail extends AlcoholVendingMachine
 	}
 	
 	@Override
-	protected int stock(int al)
+	protected void stock(int al)
 	{
-		return c;	
+		
 	}
    
    
@@ -160,9 +160,9 @@ class CustomCocktail extends AlcoholVendingMachine
    
 
 	@Override
-	protected void alcoholReturn(int al)
+	protected String alcoholReturn(int al)
 	{
-		Map<String,Integer> map = new HashMap<String,Integer>();
+		//Map<String,Integer> map = new HashMap<String,Integer>();
 
 		String result = "";
       
@@ -217,8 +217,9 @@ class CustomCocktail extends AlcoholVendingMachine
       
 		System.out.println(result);
       
-		map.put(result,300);
+		//map.put(result,300);
 		//System.out.println(map);
+		return result;
 	}
    
    
@@ -269,7 +270,7 @@ class CustomCocktail extends AlcoholVendingMachine
 	}
 
 	@Override
-	protected void enterStock(int al)
+	protected void enterStock()
 	{
 		vodka=10000;
 	    gin=10000;
@@ -290,7 +291,7 @@ class CustomCocktail extends AlcoholVendingMachine
 
 	}
 
-
+	/*
 	@Override
 	protected int alcoholRun()
 	{
@@ -304,7 +305,7 @@ class CustomCocktail extends AlcoholVendingMachine
 		return price;
 		
 	}
-	
+	*/
 	
 	
 	

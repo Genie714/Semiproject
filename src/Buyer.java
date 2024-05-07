@@ -4,7 +4,7 @@ public class Buyer // implements Serializable
 {
 	private static Buyer instance;
 	private int buyerMoney;
-	//private 자료구조 buyAlc;
+	private HashMap<String,Integer> buyAlc;
 
 	Buyer()
 	{

@@ -97,10 +97,10 @@ class PresetCocktail extends AlcoholVendingMachine
 	
 	
 	@Override
-	protected void alcoholReturn(int al)
+	protected String alcoholReturn(int al)
 	{
 
-		Map<String,Integer> map = new HashMap<String,Integer>();
+		//Map<String,Integer> map = new HashMap<String,Integer>();
 
 		String result = "";
 		switch (al)
@@ -117,11 +117,11 @@ class PresetCocktail extends AlcoholVendingMachine
 		case 10: result = "블루하와이"; break;
 		}
 		
-		System.out.println(result);
+		//System.out.println(result);
 
-		map.put(result,300);
+		//map.put(result,300);
 		//System.out.println(map);
-
+		return result;
 	}
 	
 	
@@ -165,7 +165,7 @@ class PresetCocktail extends AlcoholVendingMachine
 
 
 	@Override
-	protected int stock(int al)						// 모든 종류의 술 재고 정리해주는 메소드
+	protected void stock(int al)						// 모든 종류의 술 재고 정리해주는 메소드
 	{
 	    switch(al) 
 	    {
@@ -242,7 +242,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 				
-				return -1;
+				//return -1;
 			}
 		}
 
@@ -252,7 +252,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
 		
@@ -262,7 +262,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
 		
@@ -272,7 +272,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
 		
@@ -282,7 +282,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
       
@@ -292,7 +292,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
       
@@ -302,7 +302,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
       
@@ -312,7 +312,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
       
@@ -322,7 +322,7 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
       
@@ -332,16 +332,16 @@ class PresetCocktail extends AlcoholVendingMachine
 			{
 				System.out.println("매진(방금 선택한 항목 취소(3) 을 눌러주십시오)");
 			
-				return -1;
+				//return -1;
 			}
 		}
 		
-		return -2;
+		//return -2;
   
 	}
 
 	@Override
-	protected void enterStock(int al)
+	protected void enterStock()
 	{	
 		vodka=10000;
 	    gin=10000;
@@ -361,31 +361,9 @@ class PresetCocktail extends AlcoholVendingMachine
 	    olive=10000;
 
 		
-		switch (al)
-		{
-		case 1: resultName = "보드카"; break;
-		case 2: resultName = "진"; break;
-		case 3: resultName = "베르무트"; break;
-		case 4: resultName = "캄파리"; break;
-		case 5: resultName = "아마레토";break;
-		case 6: resultName = "예거 마이스터"; break;
-		case 7: resultName = "모히또";break;
-		case 8: resultName = "화이트 럼"; break;
-		case 9: resultName = "블루 큐라소"; break;
-		case 10: resultName = "오렌지쥬스"; break;
-		case 11: resultName = "라임주스"; break;
-		case 12: resultName = "파인애플주스"; break;
-		case 13: resultName = "레몬주스"; break;
-		case 14: resultName = "탄산수"; break;
-		case 15: resultName = "레드불"; break;
-		case 16: resultName = "올리브"; break;
-		}
-		
-
-		//System.out.printf("%s가 10L 채워졌습니다. " , resultName);  → 리스트에 (매진) 표시가 있으므로 따로 출력 구문의 필요성을 확실히 느끼지 못하겠어요.....
     }
 
-
+/*
 	@Override
 	protected int alcoholRun()
 	{
@@ -398,5 +376,5 @@ class PresetCocktail extends AlcoholVendingMachine
 	
 	}
 
-
+*/
 }
