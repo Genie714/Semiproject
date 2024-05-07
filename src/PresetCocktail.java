@@ -5,7 +5,7 @@ import java.util.*;
 
 class PresetCocktail extends AlcoholVendingMachine
 {
-	private int vodka=10000;
+	private int vodka=10;
 	private int gin=10000;
 	private int vermouth=10000;
     private int campari=10000;
@@ -129,18 +129,88 @@ class PresetCocktail extends AlcoholVendingMachine
 	protected void list()
 	{	
 		System.out.println();
+
+		if (vodka < 100 || orangejuice < 200)
+		{
+			System.out.printf("1 %s(매진) (%5d￦)   ","스큐르 드라이버",12500);
+		}
+		else if (vodka > 100 && orangejuice > 200)
+		{
+			System.out.printf("1 %s       (%5d￦)   ","스큐르 드라이버",12500);
+		}
+		if (gin < 100 || vermouth < 100 || campari < 100)
+		{
+			System.out.printf("2 %s(매진)  (%5d￦)   ","네그로니",23500);
+		}
+		else if (gin > 100 && vermouth > 100 && campari > 100)
+		{
+			System.out.printf("2 %s        (%5d￦)   ","네그로니",23500);
+		}
+		if (gin < 225 || limejuice < 75)
+		{
+			System.out.printf("3 %s(매진)    (%5d￦) \n","김렛",21500);
+		}
+		else if (gin > 225 && limejuice > 75)
+		{
+			System.out.printf("3 %s          (%5d￦) \n","김렛",21500);
+		}
+		if (whiterum < 180 || limejuice < 60 || amaretto < 60)
+		{
+			System.out.printf("4 %s(매진)      (%5d￦)   ","카타르시스",18500);
+		}
+		else if (whiterum > 180 && limejuice > 60 && amaretto > 60)
+		{
+			System.out.printf("4 %s            (%5d￦)   ","카타르시스",18500);
+		}
+		if (gin < 130 || sparklingwater < 85 || lemonjuice < 85)
+		{
+			System.out.printf("5 %s(매진)   (%5d￦)   ","진 피즈",16500);
+		}
+		else if (gin > 130 && sparklingwater > 85 && lemonjuice > 85)
+		{
+			System.out.printf("5 %s         (%5d￦)   ","진 피즈",16500);
+		}
+		if (jgermeister < 75 || redbull < 225)
+		{
+			System.out.printf("6 %s(매진) (%5d￦) \n","예거 밤",11500);
+		}
+		else if (jgermeister > 75 && redbull > 225)
+		{
+			System.out.printf("6 %s       (%5d￦) \n","예거 밤",11500);
+		}
+		if (gin < 75 || vermouth < 225 || olive < 1)
+		{
+			System.out.printf("7 %s(매진)   (%5d￦)   ","드라이 마티니",18500);
+		}
+		else if (gin > 75 && vermouth > 225 && olive > 1)
+		{
+			System.out.printf("7 %s         (%5d￦)   ","드라이 마티니",18500);
+		}
+		if (gin < 75 || sparklingwater < 225)
+		{
+			System.out.printf("8 %s(매진)    (%5d￦)   ","진토닉",11500);
+		}
+		else if (gin > 75 && sparklingwater > 225)
+		{
+			System.out.printf("8 %s          (%5d￦)   ","진토닉",11500);
+		}
+		if (mojito < 75 || sparklingwater < 225)
+		{
+			System.out.printf("9 %s(매진)  (%5d￦) \n","모히또",9500);
+		}
+		else if (mojito > 75 && sparklingwater > 225)
+		{
+			System.out.printf("9 %s        (%5d￦) \n","모히또",9500);
+		}
+		if (whiterum < 100 || bluecuracao < 50 || lemonjuice < 50 || pinejuice < 100)
+		{
+			System.out.printf("10 %s(매진)     (%5d￦)\n","블루하와이",14500);
+		}
+		else if (whiterum > 100 && bluecuracao > 50 && lemonjuice > 50 && pinejuice > 100)
+		{
+			System.out.printf("10 %s           (%5d￦)\n","블루하와이",14500);
+		}
 		
-		System.out.printf("1 %s (%5d￦)   ","스큐르 드라이버",12500);
-		System.out.printf("2 %s (%5d￦)   ","네그로니",23500);
-		System.out.printf("3 %s    (%5d￦) \n","김렛",21500);
-		System.out.printf("4 %s      (%5d￦)   ","카타르시스",18500);
-		System.out.printf("5 %s  (%5d￦)   ","진 피즈",16500);
-		System.out.printf("6 %s (%5d￦) \n","예거 밤",11500);
-		System.out.printf("7 %s   (%5d￦)   ","드라이 마티니",18500);
-		System.out.printf("8 %s   (%5d￦)   ","진토닉",11500);
-		System.out.printf("9 %s  (%5d￦) \n","모히또",9500);
-		System.out.printf("10 %s     (%5d￦)\n","블루하와이",14500);
-     
 		System.out.println();
 		
 	}
