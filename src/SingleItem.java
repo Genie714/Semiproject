@@ -303,7 +303,7 @@ class SingleItem extends AlcoholVendingMachine
 	
 	}
 	
-	/*
+	
 	@Override
 	protected void enterStock(int al)
 	{
@@ -332,7 +332,7 @@ class SingleItem extends AlcoholVendingMachine
 
 	    System.out.printf("%s가 10L 채워졌습니다. " , resultName);
 	}
-	*/
+	
 	
 	@Override
 	protected int alcoholRun()

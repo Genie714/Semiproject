@@ -81,9 +81,9 @@ abstract class AlcoholVendingMachine											// 상위 클래스
 		ChangeMoney cm = new ChangeMoney();
 		
 		
-		SingleItem ob1 = new SingleItem();										// 하위 클래스들 객체 생성
-        PresetCocktail ob2 = new PresetCocktail();
-        CustomCocktail ob3 = new CustomCocktail();
+		SingleItem ob1 = SingleItem.getInstance();										// 하위 클래스들 객체 생성
+        PresetCocktail ob2 = PresetCocktail.getInstance();
+        CustomCocktail ob3 = CustomCocktail.getInstance();
 		
 		
    	    AlcoholVendingMachine[] avmArr = new AlcoholVendingMachine[3];
